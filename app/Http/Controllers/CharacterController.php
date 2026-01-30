@@ -164,10 +164,17 @@ class CharacterController extends Controller
         $item = \App\Models\Item::find($pivotItem->item_id);
 
         // Alle anderen Items des gleichen Typs (z.B. Waffen) ablegen
-        $equippedIds = $character->items()
-            ->where('type', $item->type)
-            ->wherePivot('is_equipped', true)
-            ->pluck('items.id');
+        if ($item->type === 'weapon') {
+            $equippedIds = $character->items()
+                ->where('type', $item->type)
+                ->wherePivot('is_equipped', true)
+                ->pluck('items.id');
+        } else {
+            $equippedIds = $character->items()
+                ->where('sub_type', $item->sub_type)
+                ->wherePivot('is_equipped', true)
+                ->pluck('items.id');
+        }
 
         foreach ($equippedIds as $id) {
             $character->items()->updateExistingPivot($id, ['is_equipped' => false]);

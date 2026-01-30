@@ -78,7 +78,8 @@ class HeroCharacter extends Model
     }
 
     public function equipped($type) {
-        return $this->items()->wherePivot('is_equipped', true)->where('type', $type)->first();
+        $equippedType = $type !== 'weapon' ? 'sub_type' : 'type'; 
+        return $this->items()->wherePivot('is_equipped', true)->where($equippedType, $type)->first();
     }
 
 }

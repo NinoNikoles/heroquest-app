@@ -143,27 +143,31 @@
                         </div>
                     </div>
 
-                    <div class="col6">
+                    <div class="col12">
                         <div class="grid">
-                            <div class="col12 box rounded border bg-01dp">
-                                <h3 class="text-xs font-black uppercase text-yellow-600 mb-4 tracking-widest text-center">Rüstungskammer & Alchemist</h3>
-                                <div class="item__search">
-                                    <input type="text" id="itemSearch" onkeyup="doSearch(this.value)" placeholder="Nach Ausrüstung suchen..." class="border rounded w-full marg-bottom-no">
-                                    <div class="item__search__dropdown w-full">
-                                        <div id="searchDropdown" class="hidden">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="col12 box rounded border bg-01dp" x-data="{ openEquipped: true }">
                                 <h3 class="show-medium">Ausgerüstet</h3>    
                                 <h3 class="hide-medium" :class="openEquipped ? '' : 'marg-bottom-no'"><a href="#" @click.prevent.stop="openEquipped = ! openEquipped" class="icon-right icon-add">Ausgerüstet</a></h3>
                                 <div class="grid" x-show="openEquipped">
-                                    @foreach(['weapon' => 'Waffe', 'helm' => 'Helm', 'armor' => 'Rüstung', 'shoes' => 'Schuhe', 'shield' => 'Schild'] as $type => $label)
-                                        <div class="box border rounded bg-dark {{ $type == 'weapon' ? 'col12' : 'col6' }}">
+                                    <div class="box border rounded bg-dark col12">
+                                        <h4>Weapon</h4>
+                                        @php $equipped = $character->equipped('weapon'); @endphp
+                                        @if($equipped)
+                                            <div class="grid flex-center">
+                                                <span class="flex-grow">{{ $equipped->name }}</span>
+                                                <form action="{{ route('items.unequip', [$character->id, $equipped->pivot->id]) }}" method="POST">
+                                                    @csrf <button class="btn-red rounded small">Ablegen</button>
+                                                </form>
+                                            </div>
+                                        @else
+                                            <span class="text-xs italic text-gray-800">Leer</span>
+                                        @endif
+                                    </div>
+                                    
+                                    @foreach(['helmet' => 'Helm', 'armor' => 'Rüstung', 'boots' => 'Schuhe', 'shield' => 'Schild'] as $sub_type => $label)
+                                        <div class="box border rounded bg-dark col6">
                                             <h4>{{ $label }}</h4>
-                                            @php $equipped = $character->equipped($type); @endphp
+                                            @php $equipped = $character->equipped($sub_type); @endphp
                                             @if($equipped)
                                                 <div class="grid flex-center">
                                                     <span class="flex-grow">{{ $equipped->name }}</span>
@@ -183,11 +187,38 @@
 
                     <div class="col6">
                         <div class="box rounded border bg-01dp" x-data="{ openInventory: true }">
-                            <!-- <div class="grid"> -->
-                                <h3 class="show-medium">Inventar</h3>
-                                <h3 class="hide-medium" :class="openInventory ? '' : 'marg-bottom-no'"><a href="#" @click.prevent.stop="openInventory = ! openInventory" class="icon-right icon-add">Inventar</a></h3>
+                            <div class="grid ">
+                                <h3 class="show-medium flex-grow">Inventar</h3>
+                                <h3 class="hide-medium flex-grow" :class="openInventory ? '' : 'marg-bottom-no'"><a href="#" @click.prevent.stop="openInventory = ! openInventory" class="icon-right icon-add">Inventar</a></h3>
 
-                            <!-- </div> -->
+                                <div>
+                                    <button @click="modalOpen = ! modalOpen" class="btn-success rounded small">Item hinzufügen</button>
+                                    
+                                    <div class="modal" :class="modalOpen ? 'open' : ''">
+                                        <div class="modal__filler" @click="modalOpen = ! modalOpen"></div>
+                                        <div class="modal__wrap">
+                                            <div class="modal__inner">                                                    
+                                                <div class="box bg-01dp rounded">
+                                                    <div class="t-right">
+                                                        <button @click="modalOpen = ! modalOpen" class="btn-transparent btn-modal icon-close"></button>
+                                                    </div>
+                                                    
+                                                    <div class="grid">
+                                                        <h3 class="marg-bottom-no w-full">Rüstungskammer & Alchemist</h3>
+                                                        
+                                                        <div class="item__search w-full">
+                                                            <input type="text" id="itemSearch" onkeyup="doSearch(this.value)" placeholder="Nach Ausrüstung suchen..." class="border rounded w-full marg-bottom-no">
+                                                            <div class="item__search__dropdown w-full">
+                                                                <div id="searchDropdown" class="hidden"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="grid" x-show="openInventory">
                                 @foreach(['weapon' => 'Waffen', 'armor' => 'Ausrüstung', 'artifact' => 'Artefakte', 'potion' => 'Tränke'] as $type => $title)
