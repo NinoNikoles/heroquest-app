@@ -78,6 +78,7 @@
                             </div>
                         </div>
 
+                        <!-- Gold -->
                         <div class="col12">
                             <div class="box rounded border bg-01dp flex-center">
                                 <h3 class="marg-bottom-no flex-grow">Gold</h3>
@@ -91,12 +92,13 @@
                         </div>
                     </div>
 
+                    <!-- Würfel -->
                     <div class="col6 character__dice box rounded border" x-data="{ openDice: true }">
                         <h3 class="show-medium">Würfel</h3>     
                         <h3 class="hide-medium" :class="openDice ? '' : 'marg-bottom-no'"><a href="#" @click.prevent.stop="openDice = ! openDice" class="icon-right icon-add">Würfel</a></h3>
                         <div class="grid" x-show="openDice">
                             <div class="col-6 character__dice__box box border rounded">
-                                <h3 class="t-center">Angriff: <span id="base-atk" class="special">{{ $character->total_attack }}</span></h3>
+                                <h4 class="t-center">Angriff: <span id="base-atk" class="special">{{ $character->total_attack }}</span></h4>
 
                                 <div class="character__dice__box__mod">
                                     <button onclick="adjustTempDice('atk', -1)" class="btn-minus character__dice__box__mod__btn">-</button>
@@ -108,7 +110,7 @@
                             </div>
 
                             <div class="col-6 character__dice__box box border rounded">
-                                <h3 class="t-center">Verteidigung: <span id="base-def" class="special">{{ $character->total_defence }}</span></h3>
+                                <h4 class="t-center">Verteidigung: <span id="base-def" class="special">{{ $character->total_defence }}</span></h4>
                                 
                                 <div class="character__dice__box__mod">
                                     <button onclick="adjustTempDice('def', -1)" class="btn-minus character__dice__box__mod__btn">-</button>
@@ -126,7 +128,7 @@
                             @endphp
 
                             <div class="col-12 character__dice__box box border rounded">
-                                <h3 class="t-center">Normal: <span id="base-normal" class="special">{{ $normalDefault }}</span></h3>
+                                <h4 class="t-center">Normal: <span id="base-normal" class="special">{{ $normalDefault }}</span></h4>
                                 
                                 <div class="character__dice__box__mod">
                                     <button onclick="adjustTempDice('normal', -1)" class="btn-minus character__dice__box__mod__btn">-</button>
@@ -143,6 +145,81 @@
                         </div>
                     </div>
 
+                    <!-- Inventar -->
+                     <div class="col12">
+                        <div class="box rounded border bg-01dp" x-data="{ openInventory: true }">
+                            <div class="grid ">
+                                <h3 class="show-medium flex-grow">Inventar</h3>
+                                <h3 class="hide-medium flex-grow" :class="openInventory ? '' : 'marg-bottom-no'"><a href="#" @click.prevent.stop="openInventory = ! openInventory" class="icon-right icon-add">Inventar</a></h3>
+                            </div>
+
+                            <div class="grid" x-show="openInventory">
+                                <div class="col12">
+                                    <p class="t-right">
+                                        <button @click="modalOpen = ! modalOpen" class="btn-gold rounded icon-right icon-add">Item hinzufügen</button>
+                                    </p>
+
+                                    <div class="modal" :class="modalOpen ? 'open' : ''">
+                                        <div class="modal__filler" @click="modalOpen = ! modalOpen"></div>
+                                        <div class="modal__wrap">
+                                            <div class="modal__inner">
+                                                <div class="box bg-01dp rounded">
+                                                    <div class="t-right">
+                                                        <button @click="modalOpen = ! modalOpen" class="btn-transparent btn-modal icon-close"></button>
+                                                    </div>
+                                                    
+                                                    <div class="grid">
+                                                        <h3 class="marg-bottom-no w-full">Rüstungskammer & Alchemist</h3>
+                                                        
+                                                        <div class="item__search w-full">
+                                                            <input type="text" id="itemSearch" onkeyup="doSearch(this.value)" placeholder="Nach Ausrüstung suchen..." class="border rounded w-full marg-bottom-no">
+                                                            <div class="item__search__dropdown w-full">
+                                                                <div id="searchDropdown" class="hidden"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @foreach(['weapon' => 'Waffen', 'armor' => 'Ausrüstung', 'artifact' => 'Artefakte', 'potion' => 'Tränke'] as $type => $title)
+                                    <div class="box rounded border bg-dark {{ $type == 'weapon' || $type == 'armor' ? 'col12' : 'col6' }}">
+                                        <h4>{{ $title }}</h4>
+                                        <div class="grid-row-gap">
+                                            @if ($character->items->where('type', $type)->count() > 0)
+                                                @foreach($character->items->where('type', $type) as $item)
+                                                    <div class="box rounded-small border bg-01dp flex-center">
+                                                        <span class="flex-grow">
+                                                            {{ $item->name }}
+                                                        </span>
+                                                        <div class="grid-gap-small flex-center">
+                                                            @if(!$item->pivot->is_equipped && in_array($type, ['weapon', 'helm', 'armor', 'shoes', 'shield']))
+                                                                <form action="{{ route('items.equip', [$character->id, $item->pivot->id]) }}" method="POST">
+                                                                    @csrf <button class="btn-blue rounded small btn-add"></button>
+                                                                </form>
+                                                            @endif
+                                                            @if($item->pivot->is_equipped && in_array($type, ['weapon', 'helm', 'armor', 'shoes', 'shield']))
+                                                                <span class="tag">Equipped</span>
+                                                            @endif
+                                                            <form action="{{ route('items.remove', [$character->id, $item->pivot->id]) }}" method="POST">
+                                                                @csrf <button class="btn-red small btn-delete rounded"></button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                <span class="text-xs italic text-gray-800">Leer</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ausgerüstet -->
                     <div class="col12">
                         <div class="grid">
                             <div class="col12 box rounded border bg-01dp" x-data="{ openEquipped: true }">
@@ -181,77 +258,6 @@
                                         </div>
                                     @endforeach
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col6">
-                        <div class="box rounded border bg-01dp" x-data="{ openInventory: true }">
-                            <div class="grid ">
-                                <h3 class="show-medium flex-grow">Inventar</h3>
-                                <h3 class="hide-medium flex-grow" :class="openInventory ? '' : 'marg-bottom-no'"><a href="#" @click.prevent.stop="openInventory = ! openInventory" class="icon-right icon-add">Inventar</a></h3>
-
-                                <div>
-                                    <button @click="modalOpen = ! modalOpen" class="btn-success rounded small">Item hinzufügen</button>
-                                    
-                                    <div class="modal" :class="modalOpen ? 'open' : ''">
-                                        <div class="modal__filler" @click="modalOpen = ! modalOpen"></div>
-                                        <div class="modal__wrap">
-                                            <div class="modal__inner">                                                    
-                                                <div class="box bg-01dp rounded">
-                                                    <div class="t-right">
-                                                        <button @click="modalOpen = ! modalOpen" class="btn-transparent btn-modal icon-close"></button>
-                                                    </div>
-                                                    
-                                                    <div class="grid">
-                                                        <h3 class="marg-bottom-no w-full">Rüstungskammer & Alchemist</h3>
-                                                        
-                                                        <div class="item__search w-full">
-                                                            <input type="text" id="itemSearch" onkeyup="doSearch(this.value)" placeholder="Nach Ausrüstung suchen..." class="border rounded w-full marg-bottom-no">
-                                                            <div class="item__search__dropdown w-full">
-                                                                <div id="searchDropdown" class="hidden"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid" x-show="openInventory">
-                                @foreach(['weapon' => 'Waffen', 'armor' => 'Ausrüstung', 'artifact' => 'Artefakte', 'potion' => 'Tränke'] as $type => $title)
-                                    <div class="box rounded border bg-dark {{ $type == 'weapon' || $type == 'armor' ? 'col12' : 'col6' }}">
-                                        <h4>{{ $title }}</h4>
-                                        <div class="grid-row-gap">
-                                            @if ($character->items->where('type', $type)->count() > 0)
-                                                @foreach($character->items->where('type', $type) as $item)
-                                                    <div class="box rounded-small border bg-01dp flex-center">
-                                                        <span class="flex-grow">
-                                                            {{ $item->name }}
-                                                        </span>
-                                                        <div class="grid-gap-small flex-center">
-                                                            @if(!$item->pivot->is_equipped && in_array($type, ['weapon', 'helm', 'armor', 'shoes', 'shield']))
-                                                                <form action="{{ route('items.equip', [$character->id, $item->pivot->id]) }}" method="POST">
-                                                                    @csrf <button class="btn-blue rounded small btn-add"></button>
-                                                                </form>
-                                                            @endif
-                                                            @if($item->pivot->is_equipped && in_array($type, ['weapon', 'helm', 'armor', 'shoes', 'shield']))
-                                                                <span class="tag">Equipped</span>
-                                                            @endif
-                                                            <form action="{{ route('items.remove', [$character->id, $item->pivot->id]) }}" method="POST">
-                                                                @csrf <button class="btn-red small btn-delete rounded"></button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            @else
-                                                <span class="text-xs italic text-gray-800">Leer</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                @endforeach
                             </div>
                         </div>
                     </div>
