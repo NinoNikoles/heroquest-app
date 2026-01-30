@@ -1,8 +1,9 @@
 body {
-    padding-top: 64px;
+    padding-top: 128px;
+    padding-bottom: 64px;
 
     @include MQ(small) {
-        padding-top: 67px;
+        padding-top: 131px
     }
 }
 

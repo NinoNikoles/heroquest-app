@@ -117,6 +117,8 @@
 			border-color: var(--btn-background-color);
 		}
 	}
+
+	&.icon-right { display: inline-flex !important; }
 }
 
 @mixin btnSmall() {

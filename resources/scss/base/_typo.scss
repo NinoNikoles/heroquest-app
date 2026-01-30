@@ -18,9 +18,10 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-h1 { font-size: 38px; }
-h2 { font-size: 28px; }
-h3 { font-size: 20px; }
+h1 { font-size: 32px; text-transform: uppercase; @include MQ(small) { font-size: 48px; } }
+h2 { font-size: 24px; text-transform: uppercase; @include MQ(small) { font-size: 32px; } }
+h3 { font-size: 18px; text-transform: uppercase; @include MQ(small) { font-size: 24px; } }
+h4 { font-size: 16px; @include MQ(small) { font-size: 18px; } }
 
 p {
     margin-top: 0;

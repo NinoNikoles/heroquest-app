@@ -12,9 +12,8 @@ body {
 }
 
 main {
-    width: auto;
+    width: 100%;
     max-width: 1200px;
-    // min-height: 100vh;
     margin: 0 auto;
 }
 
@@ -85,16 +84,14 @@ main {
     padding: $space;
 }
 
-section {
+.marg-bottom-l {
     margin: {
-        top: $space-m;
-        bottom: $space-m;
+        bottom: $space-m !important;
     };
 
     @include MQ(xxsmall) {
         margin: {
-            top: $space-l;
-            bottom: $space-l;
+            bottom: $space-l !important;
         };
     }
 }
