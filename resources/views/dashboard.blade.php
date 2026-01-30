@@ -1,13 +1,13 @@
 <x-app-layout>
-    <section class="t-center">
+    <section class="marg-bottom-l t-center">
         <h1 class="">Dashboard</h1>
         <p class="marg-bottom-no">Join or create a Quest to start your adventure!</p>
     </section>
 
-    <div class="innerWrap">    
-        <section class="grid">
+    <div class="innerWrap">
+        <section class="marg-bottom-l grid">
             <div class="bg-02dp col-6 rounded box border">
-                <h3 class="t-center">Neue Lobby starten</h4>
+                <h4 class="t-center">Neue Lobby starten</h4>
                 <form action="{{ route('lobbies.store') }}" method="POST" class="t-center">
                     @csrf
                     <input type="text" name="name" placeholder="Name der Lobby" class="w-full rounded border-none" required>
@@ -16,7 +16,7 @@
             </div>
 
             <div class="bg-02dp col-6 rounded box border">
-                <h3 class="t-center">Einer Lobby beitreten</h4>
+                <h4 class="t-center">Einer Lobby beitreten</h4>
                 <form action="{{ route('lobbies.join') }}" method="POST" class="t-center">
                     @csrf
                     <input type="text" name="code" placeholder="Lobby Code" class="w-full rounded border-none" required>
@@ -25,10 +25,11 @@
             </div>
         </section>
 
-        <section>
+        @if (count($myCreatedLobbies) > 0)
+        <section class="{{ count($joinedLobbies) > 0 ? 'marg-bottom-l' : ''}}">
             <h2 class="">Meine Quests (Zargon)</h2>
             <div class="grid">
-                @forelse($myCreatedLobbies as $lobby)
+                @foreach($myCreatedLobbies as $lobby)
                     <div class="bg-02dp col6 rounded box border">
                         <h3>{{ $lobby->name }}</h3>
                         <hr>
@@ -37,16 +38,16 @@
                             Master-Ansicht
                         </a>
                     </div>
-                @empty
-                    <p class="text-gray-500 italic">Du hast noch keine Quest als Master gestartet.</p>
-                @endforelse
+                @endforeach
             </div>
         </section>
+        @endif
 
+        @if (count($joinedLobbies) > 0)
         <section>
             <h2 class="text-2xl font-bold mb-4 text-blue-500 uppercase tracking-wider">Beigetretene Quests</h2>
             <div class="grid">
-                @forelse($joinedLobbies as $lobby)
+                @foreach($joinedLobbies as $lobby)
                     <div class="bg-02dp col6 rounded box border">
                         <div class="grid">
                             <div class="flex-grow">
@@ -73,11 +74,10 @@
                             </div>
                         @endforeach
                     </div>
-                @empty
-                    <p class="text-gray-500 italic">Du nimmst aktuell an keinem Abenteuer teil.</p>
-                @endforelse
+                @endforeach
             </div>
-        </section>          
+        </section>
+        @endif
 
     </div>
 </x-app-layout>
