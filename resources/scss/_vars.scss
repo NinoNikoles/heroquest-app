@@ -1,0 +1,137 @@
+$rootPath: "../";
+
+$white: #ffffff;
+$black: #000000;
+$dark-grey: #121212;
+
+$color-bg-01dp: rgba(255, 255, 255, 0.05);
+$color-bg-02dp: rgba(255, 255, 255, 0.07);
+$color-bg-03dp: rgba(255, 255, 255, 0.08);
+$color-bg-04dp: rgba(255, 255, 255, 0.09);
+$color-bg-06dp: rgba(255, 255, 255, 0.11);
+$color-bg-08dp: rgba(255, 255, 255, 0.12);
+$color-bg-12dp: rgba(255, 255, 255, 0.14);
+$color-bg-16dp: rgba(255, 255, 255, 0.15);
+$color-bg-24dp: rgba(255, 255, 255, 0.16);
+
+$color-body: $dark-grey;
+
+$font-color: darken($white, 13%);
+$font-color-medium: darken($white, 40%);
+$font-color-disabled: darken($white, 62%);
+
+$color-hp-base: rgb(239, 68, 68);
+$color-int-base: rgb(59, 130, 246);
+$color-success-base: rgb(66, 246, 59);
+$color-gold-base: rgb(244, 192, 37);
+
+//-- Grid Settings --
+$gap-default:   16px !default;
+$gaps:          (no-gap: 0px, xxs: $gap-default*.25, xs: $gap-default*.5, s: $gap-default*.75, default: $gap-default, m: $gap-default*2, l: $gap-default*3, xl: $gap-default*4, xxl: $gap-default*5);
+$space-no:      gap(no-gap) !default;
+$space-xxs:     gap(xxs) !default;
+$space-xs:      gap(xs) !default;
+$space-s:       gap(s) !default;
+$space:         gap(default) !default;
+$space-m:       gap(m) !default;
+$space-l:       gap(l) !default;
+$space-xl:      gap(xl) !default;
+$space-xxl:     gap(xxl) !default;
+
+$grid-columns:      gridSettings(columns) !default;
+$grid-max-width:    gridSettings(max-width) !default;
+$grid-space:        $space !default;
+
+//-- Breakpoints --
+$xxxsmall:  bp(xxxsmall) !default;
+$xxsmall:   bp(xxsmall) !default;
+$xsmall:	bp(xsmall) !default;
+$small:		bp(small) !default;
+$medium:	bp(medium) !default;
+$large:		bp(large) !default;
+$xlarge:	bp(xlarge) !default;
+$xxlarge:	bp(xxlarge) !default;
+$xxxlarge:	bp(xxxlarge) !default;
+
+$border-radius: 12px;
+$border-color: $color-bg-12dp;
+$border-style: solid;
+$border-width: 1px;
+$border-default : $border-width $border-style $border-color;
+
+$font-family: 'Roboto', sans-serif;
+$font-family-special: 'Carter-Sans', 'Roboto', sans-serif;
+$icon-font: 'Icon';
+
+//-- Icons --
+$icon-add:"+";
+$icon-add-user:"\e934";
+$icon-arrow-right:"\e91f";
+$icon-arrow-back:"\e91e";
+$icon-back:"\f149";
+$icon-chat:"\e92b";
+$icon-check:"\e92a";
+$icon-copy:"c";
+$icon-chevron-down:"\e917";
+$icon-chevron-left:"\e918";
+$icon-chevron-up:"\e91a";
+$icon-chevron-right:"\e919";
+$icon-calender:"\e910";
+$icon-close:"\e92e";
+$icon-error:"!";
+$icon-eye:"\f06e";
+$icon-file:"\f016";
+$icon-folder:"\f07c";
+$icon-fullscreen:"\e920";
+$icon-fullscreen-exit:"\e921";
+$icon-globe:"g";
+$icon-heart:"\f004";
+$icon-heart-empty:"\f08a";
+$icon-heart-minus:"\e954";
+$icon-help:"?";
+$icon-home:"h";
+$icon-image:"\f03e";
+$icon-info:"i";
+$icon-key:"k";
+$icon-link:"\e956";
+$icon-list:"\f00b";
+$icon-location:"\e91d";
+$icon-logout:"\e913";
+$icon-mail:"m";
+$icon-media:"\e911";
+$icon-menu:"\e918";
+$icon-moon:"\e91b";
+$icon-movie:"\f008";
+$icon-multilayer:"\e916";
+$icon-pause:"\e901";
+$icon-pen:"e";
+$icon-phone:"p";
+$icon-play:"\e902";
+$icon-remove:"-";
+$icon-repeat:"\e903";
+$icon-repeat-one:"\e904";
+$icon-replay:"\e905";
+$icon-shuffle:"\e906";
+$icon-save:"\e915";
+$icon-send:"s";
+$icon-search:"\e90d";
+$icon-setting:"\e933";
+$icon-skip-next:"\e907";
+$icon-skip-previous:"\e908";
+$icon-skip-time:"\e952";
+$icon-time-back:"\e953";
+$icon-spotify:"\f1bc";
+$icon-star:"\e927";
+$icon-stop:"\e908";
+$icon-sun:"\e91c";
+$icon-trash:"\e927";
+$icon-unlink:"\e955";
+$icon-update:"\e913";
+$icon-upload:"\f093";
+$icon-users:"\e92e";
+$icon-volume-down:"\e909";
+$icon-volume-mute:"\e90a";
+$icon-volume-off:"\e90b";
+$icon-volume-up:"\e90c";
+$icon-zoom-in:"\e931";
+$icon-zoom-out:"\e932";

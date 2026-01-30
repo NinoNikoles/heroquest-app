@@ -1,0 +1,24 @@
+//-- Roboto --
+@include font-face('Roboto', resources/fonts/roboto/Roboto-Thin, 100, normal, eot ttf woff svg);
+@include font-face('Roboto', resources/fonts/roboto/Roboto-ThinItalic, 100, italic, eot ttf woff svg);
+
+@include font-face('Roboto', resources/fonts/roboto/Roboto-Light, 300, normal, eot ttf woff svg);
+@include font-face('Roboto', resources/fonts/roboto/Roboto-LightItalic, 300, italic, eot ttf woff svg);
+
+@include font-face('Roboto', resources/fonts/roboto/Roboto-Regular, 400, normal, eot ttf woff svg);
+@include font-face('Roboto', csresourcess/fonts/roboto/Roboto-Italic, 400, italic, eot ttf woff svg);
+
+@include font-face('Roboto', resources/fonts/roboto/Roboto-Medium, 500, normal, eot ttf woff svg);
+@include font-face('Roboto', resources/fonts/roboto/Roboto-MediumItalic, 500, italic, eot ttf woff svg);
+
+@include font-face('Roboto', resources/fonts/roboto/Roboto-Bold, 700, normal, eot ttf woff svg);
+@include font-face('Roboto', resources/fonts/roboto/Roboto-BoldItalic, 700, italic, eot ttf woff svg);
+
+@include font-face('Roboto', resources/fonts/roboto/Roboto-Black, 900, normal, eot ttf woff svg);
+@include font-face('Roboto', resources/fonts/roboto/Roboto-BlackItalic, 900, italic, eot ttf woff svg);
+
+//-- Carter Sans --
+@include font-face('Carter-Sans', resources/fonts/carter-sans/Carter_Sans_W01_SemiBold, 600, normal, eot ttf woff svg);
+
+//-- Default (Icon-Font) --
+@include font-face('Icon', resources/fonts/icon/icomoon, 400, normal, eot ttf woff svg);

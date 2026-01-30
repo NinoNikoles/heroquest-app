@@ -1,0 +1,86 @@
+//-- Rem calc --
+@function rem-calc($val) {
+    $calc: $val / 16;
+    @return #{$calc}rem;
+}
+
+//-- Merge deep maps --
+@function save-map-merge($first-map, $second-map) {
+    $result: $first-map;
+    @each $key, $value in $second-map {
+        @if (not map-has-key($result, $key)) or (type-of(map-get($result, $key)) != type-of($value)) or (not (type-of(map-get($result, $key)) == map and type-of($value) == map)) {
+            $result: map-merge($result, ($key: $value));
+        }
+        @else {
+            $result: map-merge($result, ($key: save-map-merge(map-get($result, $key), $value)));
+        }
+    }
+    @return $result;
+}
+
+//-- Get colors --
+@function color($color, $variant: base) {
+    @return map-get(map-get($color-palette, $color), $variant);
+}
+@function color-dark($color, $variant: dark) {
+    @return map-get(map-get($color-palette, $color), $variant);
+}
+@function dm-color($color) {
+    @return map-get($dark-materials, $color);
+}
+//-- Normal Font Settings --
+@function typo($key) {
+    @return map-get($typo, $key);
+}
+@function font-weight($weight: regular) {
+    @return map-get(map-get($typo, font-weight), $weight);
+}
+//-- Font sizes --
+@function font-size($size: default) {
+    @return map-get(map-get($typo, font-sizes), $size);
+}
+@function headline-font-size($headline, $size: default) {
+    @return map-get(map-get($headline-font-sizes, $size), $headline);
+}
+//-- Get global settings --
+@function global($val) {
+    @return map-get($global, $val);
+}
+//-- Get grid settings --
+@function gridSettings($val) {
+    @return map-get($grid-settings, $val);
+}
+//-- Get space settings --
+@function gap($val) {
+    @return map-get($gaps, $val);
+}
+//-- Get button settings --
+@function btn($val) {
+    @return map-get($button, $val);
+}
+//-- Get button sizes --
+@function btn-size($val) {
+    @return map-get(map-get($button, sizes), $val);
+}
+
+//-- Get aspect-ratio --
+@function aspect-ratio($val) {
+    @return map-get($aspect-ratio, $val);
+}
+//-- Get transitions --
+@function transition($val: base) {
+    @return map-get($transitions, $val);
+}
+
+@function buttonPadding($pos) {
+    @if $pos == 'left' {
+        @return $button-padding-left;
+    } @else {
+       @return $button-padding-right; 
+    }
+}
+
+@function background-opacity($color, $opacity) {
+    $opacity: $opacity/100;
+    @return rgba($color, $opacity);
+}

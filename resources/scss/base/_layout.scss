@@ -1,0 +1,125 @@
+* {
+    @include box-sizing(border-box);
+}
+body {
+    background-color: $color-body;
+    position: relative;
+    overflow-x: hidden;
+}
+
+main {
+    width: auto;
+    max-width: 1200px;
+    // min-height: 100vh;
+    margin: 0 auto;
+}
+
+// nav {
+//     display: none;
+// }
+
+#toast-container { position: fixed; top: $space; right: $space; overflow: hidden; z-index: 9; transition: opacity 1s, transform 1s; }
+
+.bg-dark { background-color: $dark-grey; }
+.bg-01dp { background-color: $color-bg-01dp; }
+.bg-02dp { background-color: $color-bg-02dp; }
+.bg-03dp { background-color: $color-bg-03dp; }
+.bg-04dp { background-color: $color-bg-04dp; }
+.bg-06dp { background-color: $color-bg-06dp; }
+.bg-08dp { background-color: $color-bg-08dp; }
+.bg-12dp { background-color: $color-bg-12dp; }
+.bg-16dp { background-color: $color-bg-16dp; }
+.bg-24dp { background-color: $color-bg-24dp; }
+
+.rounded { border-radius: $border-radius; }
+.rounded-small { border-radius: $border-radius*.5; }
+
+.border { border: $border-default; }
+.border-none { border: none; }
+.border-success { border-color: $color-success-base; }
+
+.w-full {
+    display: block;
+    width: 100%;
+}
+
+.space-top-bottom {
+    margin: $space auto;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.justify-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-grow { flex-grow: 1; }
+
+.marg-bottom-no { margin-bottom: 0 !important; }
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.box {
+    padding: $space;
+}
+
+section {
+    margin: {
+        top: $space-m;
+        bottom: $space-m;
+    };
+
+    @include MQ(xxsmall) {
+        margin: {
+            top: $space-l;
+            bottom: $space-l;
+        };
+    }
+}
+
+hr { border-color: $color-bg-02dp; border-style: solid; margin: $space 0; }
+
+.tag {
+    background-color: $font-color;
+    border-radius: $border-radius*.5;
+    color: $dark-grey;
+    font-size: 12px;
+    padding: $space*.5 $space*.75;
+}
+
+.btn, button { @include btn(); }
+.btn-red { @include btn($white, $color-hp-base); }
+.btn-blue { @include btn($white, $color-int-base); }
+.btn-green { @include btn($dark-grey, $color-success-base); }
+.btn-gold { @include btn($dark-grey, $color-gold-base); }
+.small { @include btnSmall(); }
+.btn-iconOnly { @include btnIconOnly(); }
+
+.btn-delete { @include btnIconOnly(); @extend .icon-trash; }
+.btn-remove { @include btnIconOnly(); @extend .icon-remove; }
+.btn-add { @include btnIconOnly(); @extend .icon-add; }
+
+.opacity-0 { opacity: 0; }
+.translate-x-10 { transform: translateX(+10%); }
+
+.breadcrumb {
+    a:hover { color: $font-color-disabled; }
+}

@@ -1,0 +1,10 @@
+input {
+    &[type="text"] {
+        background-color: $dark-grey;
+        border: $border-default;
+        margin-bottom: $space;
+        padding: $space*.75 $space;
+
+        &.rounded { border-radius: $border-radius*0.5;}
+    }
+}

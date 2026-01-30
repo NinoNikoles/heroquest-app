@@ -1,0 +1,166 @@
+//-- Default colors --
+$color-palette: (
+    primary: (
+        base: #3da1bf,
+        dark: #51D6FF
+    ),
+    secondary: (
+        base: #29bf68,
+        dark: #37FF8B
+    ),
+    tertiary: (
+        base: #bf4347,
+        dark: #FF595E
+    ),
+    quaternary: (
+        base: #683b5e,
+        dark: #8A4F7D
+    ),
+    quinary: (
+        base: #ff6666,
+        dark: #FFCA3A
+    ),
+    senary: (
+        base: #FFFF00,
+        dark: #999900
+    ),
+    white: (
+        base: #ffffff,
+        01:   #F5F5F5,
+        02:   #DEDEDE
+    ),
+    black: (
+        base: #000000,
+        dark: #000000
+    ),
+    grey: (
+        base: #aaaaaa,        
+        dark: #aaaaaa     
+    ),
+    dark: (
+        base: #121212,
+        dark: #121212
+    ),
+    success: (
+        base: #3adb76,
+        dark: #3adb76
+    ),
+    warning: (
+        base: #ffae00,
+        dark: #ffae00
+    ),
+    alert: (
+        base: #cc4b37,
+        dark: #cc4b37
+    ),
+    offwhite: (
+        base: #fff8f0,
+        dark: #fff8f0
+    )
+) !default;
+
+$dark-materials: (
+    dp0:    map-get(map-get($color-palette, dark), base),
+    dp1:    #1e1e1e,
+    dp2:    #222222,
+    dp3:    #242424,
+    dp4:    #262626,
+    dp6:    #2c2c2c,
+    dp8:    #2e2e2e,
+    dp12:   #323232,
+    dp16:   #353535,
+    dp24:   #373737,
+) !default;
+
+//-- Typography --
+$typo: (
+    color:                          map-get(map-get($color-palette, dark), base),
+    color-headline:                 map-get(map-get($color-palette, dark), base),
+    color-invert:                   map-get(map-get($color-palette, white), base),
+    font-family:  					('Roboto', 'Open Sans', 'Neue Helvetica', Helvetica, sans-serif),
+    font-family-alternative:		('Roboto', 'Open Sans', Helvetica, sans-serif),
+    font-sizes:                     (default: 16px, small: 14px, medium: 18px, large: 20px),
+    font-weight:                    (thin: 200, light: 300, regular: 400, medium: 500, bold: 700, strong: 900),
+    icon:                           'Default',
+    line-height:                    1.5,
+    line-height-headline:           1.2,
+    letterspacing:                  .0em
+) !default;
+
+//-- Font sizes --
+$headline-font-sizes: (
+    default:(
+        h1:         48px,
+        h2:         40px,
+        h3:         32px,
+        h4:         24px,
+        h5:         20px,
+        h6:         map-get(map-get($typo, font-sizes), default),
+    ),
+    small: (
+        h1:         32px,
+        h2:         28px,
+        h3:         24px,
+        h4:         20px,
+        h5:         18px,
+        h6:         map-get(map-get($typo, font-sizes), default),
+    )
+) !default;
+
+//-- Grid --
+$grid-settings: (
+    columns:    12,
+    max-width:  1400px
+) !default;
+
+//-- Breakpoints
+$breakpoints: (
+    xxxsmall:   320px,
+    xxsmall:    640px,
+    xsmall:     720px,
+    small:      1024px,
+    medium:     1080px,
+    large:      1280px,
+    xlarge:     1440px,
+    xxlarge:    1600px,
+    xxxlarge:   1920px,
+) !default;
+
+//-- Global --
+$global: (
+    border-color:           map-get(map-get($color-palette, grey), base),
+    border-color-hover:     map-get(map-get($color-palette, dark), base),
+    border-radius:          0px,
+    border-style:           solid,
+    border-width:           2px,
+    rounded:                50px,
+) !default;
+
+//-- Buttons --
+$button: (
+    animation: 'default',
+    sizes: (
+        small:  0.75,
+        normal: 1,
+        big:    1.25,
+    )
+) !default;
+
+//-- Aspect ratio --
+$aspect-ratio: (
+    original:   unset,
+    widescreen: 16 / 9,
+    classic:    4 / 3,
+    square:     1 / 1,
+    panorama:   5 / 1,
+    teaser:     3 / 1,
+    portrait:   4 / 5,
+    vertical:   9 / 16,
+    poster:     2 / 3,
+) !default;
+
+//-- Transitions --
+$transitions: (
+    duration:   0.3s,
+    timing:     ease,
+) !default;

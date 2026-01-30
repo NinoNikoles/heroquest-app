@@ -1,0 +1,189 @@
+// @include font-face(default, css/fonts/default, 700, normal, eot ttf woff svg);
+
+i {
+    font-family: $icon-font;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 20px;
+
+    /* Enable Ligatures ================ */
+    letter-spacing: 0;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon::before{
+    content: '';
+    font-family: $icon-font;
+    text: {
+        transform: none;
+    }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Enable Ligatures ================ */
+    letter-spacing: 0;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-left,
+.icon-right {
+    &::before {
+        display: inline-block;
+        content: "";
+        font: {
+            family: $icon-font;
+            size: inherit;
+        }
+        text: {
+            transform: none;
+        }
+        margin: {
+            right: $space-xs;
+        }
+    }
+}
+
+.icon-right {
+    display: flex !important;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    &::before {
+        margin: {
+            right: 0;
+            left: $space-xs;
+        }
+    }
+}
+
+a.icon-left:hover,
+a.icon-right:hover {
+    &::before{
+        color: inherit;
+    }
+
+    &::after{
+        color: inherit;
+    }
+}
+
+// Normal Icons
+.icon {
+    &-add { &::before { content: $icon-add; } }
+    &-add-user { &::before { content: $icon-add-user; } }
+    &-arrow-right { &::before { content: $icon-arrow-right; } }
+    &-arrow-back { &::before { content: $icon-arrow-back; } }
+    &-arrow-left { &::before { content: $icon-arrow-back; } }
+    &-back { &::before { content: $icon-back; rotate: 180deg; } }
+    &-check { &::before { content: $icon-check; } }
+    &-chevron-down { &::before { content: $icon-chevron-down; } }
+    &-chevron-left { &::before { content: $icon-chevron-left; } }
+    &-chevron-up { &::before { content: $icon-chevron-up; } }
+    &-chevron-right { &::before { content: $icon-chevron-right; } }
+    &-calender { &::before { content: $icon-calender; } }
+    &-close { &::before { content: $icon-close; } }
+    &-error { &::before { content: $icon-error; } }
+    &-eye { &::before { content: $icon-eye; } }
+    &-file { &::before { content: $icon-file; } }
+    &-folder { &::before { content: $icon-folder; } }
+    &-fullscreen { &::before { content: $icon-fullscreen; } }
+    &-fullscreen-exit { &::before { content: $icon-fullscreen-exit; } }
+    &-globe { &::before { content: $icon-globe; } }
+    &-heart { &::before { content: $icon-heart; } }
+    &-heart-empty { &::before { content: $icon-heart-empty; } }
+    &-heart-minus { &::before { content: $icon-heart-minus; } }
+    &-help { &::before { content: $icon-help; } }
+    &-home { &::before { content: $icon-home; } }
+    &-image { &::before { content: $icon-image; } }
+    &-info { &::before { content: $icon-info; } }
+    &-key { &::before { content: $icon-key; } }
+    &-link { &::before { content: $icon-link; } }
+    &-list { &::before { content: $icon-list; } }
+    &-location { &::before { content: $icon-location; } }
+    &-logout { &::before { content: $icon-logout; } }
+    &-mail { &::before { content: $icon-mail; } }
+    &-media { &::before { content: $icon-media; } }
+    &-menu { &::before { content: $icon-menu; } }
+    &-moon { &::before { content: $icon-moon; } }
+    &-multilayer { &::before { content: $icon-multilayer; } }
+    &-movie { &::before { content: $icon-movie; } }
+    &-pause { &::before { content: $icon-pause; } }
+    &-pen { &::before { content: $icon-pen; } }
+    &-phone { &::before { content: $icon-phone; } }
+    &-play { &::before { content: $icon-play; } }
+    &-remove { &::before { content: $icon-remove; } }
+    &-repeat { &::before { content: $icon-repeat; } }
+    &-repeat-one { &::before { content: $icon-repeat-one; } }
+    &-replay { &::before { content: $icon-replay; } }
+    &-shuffle { &::before { content: $icon-shuffle; } }
+    &-save { &::before { content: $icon-save; } }
+    &-send { &::before { content: $icon-send; } }
+    &-search { &::before { content: $icon-search; } }
+    &-setting { &::before { content: $icon-setting; } }
+    &-skip-next { &::before { content: $icon-skip-next; } }
+    &-skip-previous { &::before { content: $icon-skip-previous; } }
+    &-skip-time { &::before { content: $icon-skip-time; } }
+    &-time-back { &::before { content: $icon-time-back; } }
+    &-spotify { &::before { content: $icon-spotify; } }
+    &-star { &::before { content: $icon-star; } }
+    &-stop { &::before { content: $icon-stop; } }
+    &-sun { &::before { content: $icon-sun; } }
+    &-trash { &::before { content: $icon-trash; } }
+    &-unlink { &::before { content: $icon-unlink; } }
+    &-update { &::before { content: $icon-update; } }
+    &-upload { &::before { content: $icon-upload; } }
+    &-users { &::before { content: $icon-users; } }
+    &-volume-down { &::before { content: $icon-volume-down; } }
+    &-volume-mute { &::before { content: $icon-volume-mute; } }
+    &-volume-off { &::before { content: $icon-volume-off; } }
+    &-volume-up { &::before { content: $icon-volume-up; } }
+    &-zoom-in { &::before { content: $icon-zoom-in; } }
+    &-zoom-out { &::before { content: $icon-zoom-out; } }
+}
+
+a {
+    &[href^="tel:"]{
+        &:before {
+            content: "\50" !important;
+        }
+    }
+
+    &[href^="mailto:"] {
+        &:before {
+            content: "\4d" !important;
+        }
+    }
+}
+
+.icon-send {
+    &:before {
+        content: "\53" !important;
+        top: 32px;
+        left: 2$space-xxs;
+    }
+}

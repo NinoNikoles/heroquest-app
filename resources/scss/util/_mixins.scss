@@ -1,0 +1,135 @@
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($rootPath + $path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+
+@function bp($bp) {
+  @return map-get($breakpoints, $bp);
+}
+
+@mixin MQ($breakpoint) {
+  @media only screen and (min-width: bp($breakpoint)) { @content; }
+}
+
+@mixin maxMQ($breakpoint) {
+  @media only screen and (max-width: bp($breakpoint)) { @content; }
+}
+
+@mixin betweenMQ($breakpoint-1, $breakpoint-2) {
+  @media only screen and (min-width: bp($breakpoint-1)) and (max-width: bp($breakpoint-2)) { @content; }
+}
+
+@mixin btn($color: $dark-grey, $bg-color: $white) {
+	--btn-background-color: #{$bg-color};
+	--btn-color: #{$color};
+	--btn-fontsize: 16px;
+	--btn-padding-top: #{($space)*0.75};
+	--btn-padding-right: #{$space};
+	--btn-padding-bottom: #{($space)*0.75};
+	--btn-padding-left: #{$space};
+
+	display: inline-block;
+	cursor: pointer;
+	background-color: var(--btn-background-color);
+	color: var(--btn-color);
+	font-family: $font-family-special;
+	font-size: var(--btn-fontsize);
+	text-decoration: none;
+
+	border: none;
+	padding: var(--btn-padding-top) var(--btn-padding-right) var(--btn-padding-bottom) var(--btn-padding-left);
+	transition: background-color 0.15s cubic-bezier(.4,0,.2,1), color 0.15s cubic-bezier(.4,0,.2,1);
+
+	&::before, &::after { font-family: $icon-font; }
+
+	&:hover {
+		--btn-background-color: #{darken($bg-color, 20%)};
+	}
+
+	&:disabled,
+	&.disabled {
+		--btn-background-color: #{$bg-color};
+		cursor: not-allowed;
+		pointer-events: none;
+		opacity: 0.5;
+	}
+
+	&.rounded { border-radius: $border-radius*0.5;}
+
+	&.hollow {
+		--btn-background-color: transparent;
+		--btn-color: #{$bg-color};
+		--btn-padding-top: #{(($space)*0.75)-2};
+		--btn-padding-right: #{($space)-2};
+		--btn-padding-bottom: #{(($space)*0.75)-2};
+		--btn-padding-left: #{($space)-2};
+
+		border: 2px solid var(--btn-color);
+
+		&:hover {
+			--btn-background-color: #{$bg-color};
+			--btn-color: #{$color};
+			border-color: var(--btn-background-color);
+		}
+	}
+}
+
+@mixin btnSmall() {
+	--btn-fontsize: 12px;
+	--btn-padding-top: #{($space)*0.5};
+	--btn-padding-right: #{($space)*0.75};
+	--btn-padding-bottom: #{($space)*0.5};
+	--btn-padding-left: #{($space)*0.75};
+}
+
+@mixin btnIconOnly() {
+	--btn-padding-right: var(--btn-padding-top);
+	--btn-padding-left: var(--btn-padding-bottom);
+	--btn-fontsize: 14px;
+	line-height: 1;
+}
