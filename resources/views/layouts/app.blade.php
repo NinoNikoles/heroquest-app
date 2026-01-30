@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
         <script src="{{ asset('js/combined.min.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" x-data="{ modalOpen: false }" :class="modalOpen ? 'modal-open' : ''">
         @include('layouts.navigation')
 
         <!-- Page Heading -->
