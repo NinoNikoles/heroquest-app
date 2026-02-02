@@ -40,6 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/character/{character}/update-stat', [App\Http\Controllers\CharacterController::class, 'updateStat'])
         ->name('characters.updateStat');
 
+    Route::post('/character/{character}/update-gold', [App\Http\Controllers\CharacterController::class, 'updateGold'])
+        ->name('characters.updateGold');
+
     Route::post('/character/{character}/add-item', [CharacterController::class, 'addItem'])
         ->name('characters.addItem');
 
