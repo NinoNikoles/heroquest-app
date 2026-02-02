@@ -68,30 +68,35 @@ class CharacterController extends Controller
         $stat = $request->stat;
         $change = $request->change;
 
-        if($stat == 'gold') {
-            $oldValue = $character->gold;
+        $baseField = 'base_' . $stat;
+        $modField = str_replace('_points', '_mod', $stat);
+        
+        $limit = $character->$baseField + $character->$modField; // X + Y
+        $character->$stat = max(0, min($character->$stat + $change, $limit));
+
+        $character->save();
+        return response()->json([
+            'success' => true,
+            'maxValue' => $character->$baseField + $character->$modField, 
+            'newValue' => $character->$stat
+        ]);
+    }
+
+    public function updateGold(Request $request, HeroCharacter $character) {
+        $stat = $request->stat;
+        $change = $request->change;
+
+        if ($stat === 'add') {
             $character->gold = max(0, $character->gold + $change);
-
-            $character->save();
-            return response()->json([
-                'success' => true,
-                'oldValue' => $oldValue, 
-                'newValue' => $character->gold
-            ]);
         } else {
-            $baseField = 'base_' . $stat;
-            $modField = str_replace('_points', '_mod', $stat);
-            
-            $limit = $character->$baseField + $character->$modField; // X + Y
-            $character->$stat = max(0, min($character->$stat + $change, $limit));
-
-            $character->save();
-            return response()->json([
-                'success' => true,
-                'maxValue' => $character->$baseField + $character->$modField, 
-                'newValue' => $character->$stat
-            ]);
+            $character->gold = max(0, $character->gold - $change);
         }
+
+        $character->save();
+        return response()->json([
+            'success' => true,
+            'value' => $character->gold
+        ]);
     }
 
     public function updateModifier(Request $request, HeroCharacter $character)
