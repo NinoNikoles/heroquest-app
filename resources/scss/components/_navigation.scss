@@ -1,9 +1,9 @@
 body {
-    padding-top: 128px;
-    padding-bottom: 64px;
+    padding-top: 80px;
+    padding-bottom: $space;
 
     @include MQ(small) {
-        padding-top: 131px
+        padding-top: 83px
     }
 }
 
@@ -42,7 +42,7 @@ body {
 .mobile-nav {
     display: none;
     height: calc(100vh - 64px);
-    width: 320px;
+    width: 200px;
     position: absolute;
     top: 64px;
     left: 100%;
