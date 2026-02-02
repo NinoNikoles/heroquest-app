@@ -9,7 +9,7 @@
                         <p class="breadcrumb">
                             <a href="{{ route('dashboard') }}">Dashboard</a> /
                             <a href="{{ route('lobbies.show', $character->lobby->code) }}">{{ $character->lobby->name }}</a> /
-                            <span><u>{{ $character->name }}</u></span>
+                            <span><strong><u>{{ $character->name }}</u></strong></span>
                         </p>
                     </div>
 

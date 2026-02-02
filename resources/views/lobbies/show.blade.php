@@ -1,10 +1,10 @@
 <x-app-layout>
-    <div class="innerWrap">
-        <section class="grid marg-bottom-l">
+    <div class="innerWrap grid">
+        <section class="grid">
             <div class="col12">
                 <p class="breadcrumb">
                     <a href="{{ route('dashboard') }}">Dashboard</a> /
-                    <span><u>{{ $lobby->name }}</u></span>
+                    <span><strong><u>{{ $lobby->name }}</u></strong></span>
                 </p>
             </div>
 
@@ -20,7 +20,7 @@
             </div>       
         </section>
 
-        <section class="grid {{ $lobby->zargon_id == Auth::id() ? 'marg-bottom-l' : '' }}">
+        <section class="grid">
             @foreach($lobby->characters as $char)
                 <div class="col-12 col-6-xxsmall col-3-small box border rounded bg-02dp">
                     <div class="grid">

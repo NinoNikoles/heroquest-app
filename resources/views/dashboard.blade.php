@@ -6,7 +6,7 @@
 
     <div class="innerWrap">
         <section class="marg-bottom-l grid">
-            <div class="bg-02dp col-6 rounded box border">
+            <div class="bg-02dp col12 col-6-xxsmall rounded box border">
                 <h4 class="t-center">Neue Lobby starten</h4>
                 <form action="{{ route('lobbies.store') }}" method="POST" class="t-center">
                     @csrf
@@ -15,7 +15,7 @@
                 </form>
             </div>
 
-            <div class="bg-02dp col-6 rounded box border">
+            <div class="bg-02dp col12 col-6-xxsmall rounded box border">
                 <h4 class="t-center">Einer Lobby beitreten</h4>
                 <form action="{{ route('lobbies.join') }}" method="POST" class="t-center">
                     @csrf
