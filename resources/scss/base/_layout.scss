@@ -192,7 +192,7 @@ hr { border-color: $color-bg-02dp; border-style: solid; margin: $space 0; }
     transform: translate(-50%, -50%);
 
     @include MQ(xxsmall) { width: 75%; height: auto; }
-    @include MQ(small) { width: 50%; }
+    @include MQ(small) { width: 720px; }
 }
 
 .modal__inner {

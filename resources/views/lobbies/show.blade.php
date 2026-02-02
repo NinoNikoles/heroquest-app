@@ -22,7 +22,7 @@
 
         <section class="grid {{ $lobby->zargon_id == Auth::id() ? 'marg-bottom-l' : '' }}">
             @foreach($lobby->characters as $char)
-                <div class="col3 box border rounded bg-02dp">
+                <div class="col-12 col-6-xxsmall col-3-small box border rounded bg-02dp">
                     <div class="grid">
                         <h2 class="col12 marg-bottom-no t-center">{{ $char->name }}</h2>
                         <p class="col12 marg-bottom-no t-center">{{ $char->class }}</p>
@@ -94,7 +94,7 @@
             <h3>Würfel</h3>
             
             <div class="grid" x-show="openDice">
-                <div class="col-6 character__dice__box box border rounded">
+                <div class="col-12 col-6-xxsmall col-4-small character__dice__box box border rounded">
                     <h4 class="t-center">Kampf: <span id="base-fight" class="special">{{ $fightDefault }}</span></h4>
 
                     <div class="character__dice__box__mod">
@@ -106,7 +106,7 @@
                     <button onclick="rollDice('fight')" class="btn-red rounded w-full">Rollen</button>
                 </div>
 
-                <div class="col-6 character__dice__box box border rounded">
+                <div class="col-12 col-6-xxsmall col-4-small character__dice__box box border rounded">
                     <h4 class="t-center">Normal: <span id="base-normal" class="special">{{ $normalDefault }}</span></h4>
                     
                     <div class="character__dice__box__mod">
@@ -118,8 +118,10 @@
                     <button onclick="rollDice('normal')" class="btn-white rounded w-full">Rollen</button>
                 </div>
 
-                <div id="dice-result" class="grid box border rounded bg-dark flex-center justify-center flex-grow">
-                    <span class="special">Ergebnis erscheint hier...</span>
+                <div class="col-12 col-4-small">
+                    <div id="dice-result" class="grid box border rounded bg-dark flex-center justify-center flex-grow">
+                        <span class="special">Ergebnis erscheint hier...</span>
+                    </div>
                 </div>
             </div>
         </section>
