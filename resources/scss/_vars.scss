@@ -20,10 +20,14 @@ $font-color: darken($white, 13%);
 $font-color-medium: darken($white, 40%);
 $font-color-disabled: darken($white, 62%);
 
-$color-hp-base: rgb(239, 68, 68);
-$color-int-base: rgb(59, 130, 246);
-$color-success-base: rgb(66, 246, 59);
-$color-gold-base: rgb(244, 192, 37);
+$color-hp-base:                 rgba(239, 68, 68, 1);
+$color-hp-transparent:          rgba(239, 68, 68, .1);
+$color-int-base:                rgba(59, 130, 246, 1);
+$color-int-transparent:         rgba(59, 130, 246, .1);
+$color-success-base:            rgba(66, 246, 59, 1);
+$color-success-transparent:     rgba(66, 246, 59, .1);
+$color-gold-base:               rgba(244, 192, 37, 1);
+$color-gold-transparent:        rgba(244, 192, 37, .1);
 
 //-- Grid Settings --
 $gap-default:   16px !default;
@@ -85,6 +89,7 @@ $icon-folder:"\f07c";
 $icon-fullscreen:"\e920";
 $icon-fullscreen-exit:"\e921";
 $icon-globe:"g";
+$icon-gold:"\e907";
 $icon-heart:"\f004";
 $icon-heart-empty:"\f08a";
 $icon-heart-minus:"\e954";

@@ -34,12 +34,19 @@ main {
 .bg-16dp { background-color: $color-bg-16dp; }
 .bg-24dp { background-color: $color-bg-24dp; }
 
-.rounded { border-radius: $border-radius; }
-.rounded-small { border-radius: $border-radius*.5; }
+.bg-red-transparent { background-color: $color-hp-transparent;}
+.bg-blue-transparent { background-color: $color-int-transparent;}
+.bg-gold-transparent { background-color: $color-gold-transparent;}
+.bg-green-transparent { background-color: $color-success-transparent;}
 
 .border { border: $border-default; }
 .border-none { border: none; }
 .border-success { border-color: $color-success-base; }
+.border-gold { border-color: $color-gold-base; }
+.border-blue { border-color: $color-int-base; }
+
+.rounded { border-radius: $border-radius; overflow: hidden; }
+.rounded-small { border-radius: $border-radius*.5; overflow: hidden; }
 
 .w-full {
     display: block;
@@ -49,6 +56,8 @@ main {
 .space-top-bottom {
     margin: $space auto;
 }
+
+.flex { display: flex; }
 
 .flex-center {
     display: flex;
@@ -68,6 +77,9 @@ main {
 }
 
 .flex-grow { flex-grow: 1; }
+.flex-stretch { align-items: stretch; }
+
+.no-wrap { flex-wrap: nowrap; }
 
 .marg-bottom-no { margin-bottom: 0 !important; }
 
@@ -104,6 +116,14 @@ hr { border-color: $color-bg-02dp; border-style: solid; margin: $space 0; }
     color: $dark-grey;
     font-size: 12px;
     padding: $space*.5 $space*.75;
+
+    &.hollow {
+        background-color: transparent;
+        border: $border-default;
+        border-color: $font-color;
+        color: $font-color;
+        padding: ($space*.5)-1 ($space*.75)-1;
+    }
 }
 
 .btn, button { @include btn(); }
@@ -186,4 +206,19 @@ hr { border-color: $color-bg-02dp; border-style: solid; margin: $space 0; }
     > .box {
         height: 100%;
     }
+}
+
+figure, .figure {
+    margin: 0;
+
+    img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    &.square img { aspect-ratio: 1 / 1; }
+    &.widescreen img { aspect-ratio: 16 / 9; }
+    &.classic img { aspect-ratio: 4 / 3; }
 }

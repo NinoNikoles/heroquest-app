@@ -116,9 +116,29 @@
 			--btn-color: #{$color};
 			border-color: var(--btn-background-color);
 		}
+
+		&.small {
+			--btn-padding-top: #{(($space)*0.5)-2};
+			--btn-padding-right: #{(($space)*0.75)-2};
+			--btn-padding-bottom: #{(($space)*0.5)-2};
+			--btn-padding-left: #{(($space)*0.75)-2};
+		}
 	}
 
 	&.icon-right { display: inline-flex !important; }
+
+	span {
+		color: inherit;
+		font-family: inherit;
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+
+		&.border-right {
+			border-right: 1px solid var(--btn-color);
+			padding-right: $space*.5;
+		}
+	}
 }
 
 @mixin btnSmall() {

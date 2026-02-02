@@ -1,5 +1,6 @@
 input {
-    &[type="text"] {
+    &[type="text"],
+    &[type="number"] {
         background-color: $dark-grey;
         border: $border-default;
         margin-bottom: $space;

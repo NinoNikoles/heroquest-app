@@ -19,7 +19,7 @@
                                 <div class="character__header">
                                     <div class="character__image">
                                         <figure class="panorma">
-                                            <img src="https://hqcompanion.com/assets/characters/barbarian.png" alt=""/>
+                                            <img src="/resources/images/barbarin.png" alt=""/>
                                         </figure>
                                     </div>
                                     <h1 class="character__name">{{ $character->name }}</h1>
@@ -78,18 +78,7 @@
                             </div>
                         </div>
 
-                        <!-- Gold -->
-                        <div class="col12">
-                            <div class="box rounded border bg-01dp flex-center">
-                                <h3 class="marg-bottom-no flex-grow">Gold</h3>
-
-                                <div class="box border character__gold__mod bg-dark">
-                                    <button onclick="changeStat('gold', -5)" class="btn-minus">-</button>
-                                    <span id="stat-gold" class="text-gold">{{ $character->gold }}</span>
-                                    <button onclick="changeStat('gold', 5)" class="btn-plus">+</button>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <!-- Würfel -->
@@ -98,7 +87,12 @@
                         <h3 class="hide-medium" :class="openDice ? '' : 'marg-bottom-no'"><a href="#" @click.prevent.stop="openDice = ! openDice" class="icon-right icon-add">Würfel</a></h3>
                         <div class="grid" x-show="openDice">
                             <div class="col-6 character__dice__box box border rounded">
-                                <h4 class="t-center">Angriff: <span id="base-atk" class="special">{{ $character->total_attack }}</span></h4>
+                                <h4 class="flex-center justify-center">
+                                    <span class="item-stat item-stat--medium space-left space-half-right">
+                                        <svg fill="#000000" height="800px" width="800px" version="1.1" id="sword" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 510.393 510.393" xml:space="preserve"><g><g><path d="M473.929,443.781l-61.006-61.006c20.193-23.994,34.821-50.539,36.986-72.686c1.146-11.726-7.431-22.161-19.157-23.308 s-22.161,7.431-23.308,19.157c-0.274,2.806-0.97,5.822-2.02,8.99l-59.715-59.711l128.212-128.231 c2.34-2.341,4.104-5.194,5.151-8.333l30.187-90.496c5.563-16.678-10.303-32.548-26.982-26.99L391.76,31.333 c-3.142,1.047-5.998,2.812-8.34,5.154L255.197,164.711L126.972,36.495c-2.341-2.341-5.195-4.105-8.335-5.152L28.119,1.156 C11.44-4.406-4.43,11.464,1.133,28.143l30.187,90.517c1.047,3.141,2.811,5.994,5.152,8.335L164.687,255.22l-59.981,59.981 c-0.947-3.009-1.532-5.854-1.692-8.477c-0.713-11.76-10.826-20.716-22.586-20.002c-11.76,0.714-20.716,10.826-20.002,22.586 c0.968,15.948,8.92,34.408,21.056,52.607c0.126,0.2,0.237,0.407,0.371,0.604c0.458,0.677,0.942,1.352,1.411,2.027 c0.003,0.004,0.006,0.008,0.008,0.012c0.812,1.17,1.633,2.338,2.478,3.504c0.74,1.026,1.492,2.05,2.256,3.072 c0.21,0.281,0.42,0.561,0.633,0.841c2.77,3.67,5.691,7.306,8.741,10.888L36.465,443.78c-8.331-8.33-21.838-8.33-30.169,0.001 c-8.331,8.331-8.331,21.839,0,30.17l14.936,14.936c0.049,0.05,0.091,0.106,0.141,0.156s0.105,0.091,0.156,0.141l14.934,14.934 c8.331,8.331,21.839,8.331,30.17,0c8.33-8.33,8.331-21.835,0.003-30.166l61.006-61.006c23.995,20.193,50.54,34.822,72.687,36.987 c11.726,1.146,22.161-7.431,23.308-19.157c1.146-11.726-7.431-22.161-19.157-23.308c-2.808-0.274-5.826-0.971-8.997-2.022 l59.705-59.719l59.984,59.988c-3.005,0.945-5.847,1.529-8.467,1.688c-11.76,0.713-20.716,10.826-20.002,22.586 c0.714,11.76,10.826,20.716,22.586,20.002c15.989-0.97,34.502-8.962,52.746-21.15c0.143-0.092,0.292-0.17,0.434-0.266 c0.53-0.358,1.058-0.738,1.587-1.103c0.534-0.366,1.068-0.739,1.601-1.113c0.565-0.397,1.13-0.785,1.694-1.19 c1.3-0.929,2.595-1.884,3.889-2.852c0.209-0.157,0.417-0.313,0.626-0.471c3.701-2.79,7.369-5.735,10.981-8.811l60.916,60.916 c-8.331,8.331-8.331,21.839,0,30.17c8.331,8.331,21.839,8.331,30.17,0l14.958-14.958c0.043-0.042,0.09-0.077,0.133-0.12 s0.078-0.09,0.12-0.133l14.954-14.954c8.331-8.331,8.331-21.839,0-30.17C495.765,435.456,482.261,435.454,473.929,443.781z M410.029,70.219l45.253-15.081l-15.091,45.24L315.539,225.049l-30.171-30.169L410.029,70.219z M55.111,55.135l45.252,15.091 l139.565,139.555c0.062,0.064,0.114,0.133,0.177,0.196l60.352,60.331c0.006,0.006,0.012,0.011,0.018,0.016l82.127,82.121 c-4.599,5.682-9.599,11.241-14.867,16.509c-4.933,4.933-10.019,9.548-15.186,13.8l-82.221-82.227 c-0.02-0.02-0.036-0.042-0.056-0.062l-60.331-60.331c-0.006-0.006-0.012-0.01-0.017-0.016L70.202,100.387L55.111,55.135z M157.964,382.623c-4.219-3.415-8.383-7.063-12.42-10.884c-0.021-0.02-0.042-0.04-0.063-0.061 c-1.138-1.078-2.261-2.176-3.377-3.281c-0.34-0.336-0.678-0.673-1.015-1.011c-4.825-4.872-9.294-9.801-13.419-14.809 l67.186-67.186l30.161,30.164L157.964,382.623z"/></g></g></svg>
+                                    </span>
+                                    <span id="base-atk" class="special">{{ $character->total_attack }}</span>
+                                </h4>
 
                                 <div class="character__dice__box__mod">
                                     <button onclick="adjustTempDice('atk', -1)" class="btn-minus character__dice__box__mod__btn">-</button>
@@ -110,7 +104,12 @@
                             </div>
 
                             <div class="col-6 character__dice__box box border rounded">
-                                <h4 class="t-center">Verteidigung: <span id="base-def" class="special">{{ $character->total_defence }}</span></h4>
+                                <h4 class="flex-center justify-center">
+                                    <span class="item-stat item-stat--medium space-left space-half-right">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.644c2.965 2.238 6.458 3.004 8.912 3.25-.658 7.052-4.891 12.593-8.912 15.655-4.021-3.062-8.254-8.603-8.912-15.656 2.454-.245 5.947-1.011 8.912-3.249zm0-2.644c-2.995 2.995-7.486 4-11 4 0 8.583 5.068 16.097 11 20 5.932-3.903 11-11.417 11-20-3.514 0-8.005-1.005-11-4z"/></svg>
+                                    </span>
+                                    <span id="base-def" class="special">{{ $character->total_defence }}</span>
+                                </h4>
                                 
                                 <div class="character__dice__box__mod">
                                     <button onclick="adjustTempDice('def', -1)" class="btn-minus character__dice__box__mod__btn">-</button>
@@ -153,22 +152,27 @@
                                 <h3 class="hide-medium flex-grow" :class="openInventory ? '' : 'marg-bottom-no'"><a href="#" @click.prevent.stop="openInventory = ! openInventory" class="icon-right icon-add">Inventar</a></h3>
                             </div>
 
-                            <div class="grid" x-show="openInventory">
+                            <div class="grid" x-show="openInventory" x-data="{ goldEditor: false, itemAdder: false }">
                                 <div class="col12">
-                                    <p class="t-right">
-                                        <button @click="modalOpen = ! modalOpen" class="btn-gold rounded icon-right icon-add">Item hinzufügen</button>
-                                    </p>
+                                    <div class="grid">
+                                        <p class="flex-grow">
+                                            <button @click="modalOpen = ! modalOpen; goldEditor = ! goldEditor" class="btn-gold hollow rounded icon-right icon-add"><span class="border-right"><span class="icon-left icon-gold" id="current-gold-btn">{{ $character->gold }}</span> Gold</span></button>
+                                        </p>
+                                        <p class="t-right">
+                                            <button @click="modalOpen = ! modalOpen; itemAdder = ! itemAdder" class="btn-gold rounded icon-right icon-add">Item hinzufügen</button>
+                                        </p>
+                                    </div>
 
                                     <div class="modal" :class="modalOpen ? 'open' : ''">
-                                        <div class="modal__filler" @click="modalOpen = ! modalOpen"></div>
+                                        <div class="modal__filler" @click="modalOpen = false; goldEditor = false; itemAdder = false;"></div>
                                         <div class="modal__wrap">
                                             <div class="modal__inner">
                                                 <div class="box bg-01dp rounded">
                                                     <div class="t-right">
-                                                        <button @click="modalOpen = ! modalOpen" class="btn-transparent btn-modal icon-close"></button>
+                                                        <button @click="modalOpen = false; goldEditor = false; itemAdder = false;" class="btn-transparent btn-modal icon-close"></button>
                                                     </div>
                                                     
-                                                    <div class="grid">
+                                                    <div class="grid" x-show="itemAdder">
                                                         <h3 class="marg-bottom-no w-full">Rüstungskammer & Alchemist</h3>
                                                         
                                                         <div class="item__search w-full">
@@ -178,6 +182,30 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
+                                                    <div class="grid" x-show="goldEditor">
+                                                        <h3 class="marg-bottom-no w-full icon-left icon-gold">Aktuelles Gold</h3>
+
+                                                        <div class="col12">
+                                                            <p class="box rounded border border-gold bg-gold-transparent bg-dark flex-center justify-center w-full">
+                                                                <span class="box large" id="current-gold-main">{{ $character->gold }}</span>
+                                                            </p>
+                                                        </div>
+                                                        
+                                                        <!-- Gold -->
+                                                        <div class="grid col12">
+                                                            <div class="w-full">
+                                                                <label for="adjust-gold">Menge zum anpassen</label>
+                                                                <input type="number" id="adjust-gold" name="adjust-gold" value="" placeholder="0" class="rounded w-full marg-bottom-no">
+                                                            </div>
+
+                                                            <div class="grid justify-between">
+                                                                <button onclick="changeGold('spend', document.getElementById('adjust-gold').value)" class="btn-red rounded hollow icon-left icon-remove">Spend</button>
+                                                                <button onclick="changeGold('add', document.getElementById('adjust-gold').value)" class="btn-gold rounded icon-left icon-add">Add</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -185,27 +213,49 @@
                                 </div>
 
                                 @foreach(['weapon' => 'Waffen', 'armor' => 'Ausrüstung', 'artifact' => 'Artefakte', 'potion' => 'Tränke'] as $type => $title)
-                                    <div class="box rounded border bg-dark {{ $type == 'weapon' || $type == 'armor' ? 'col12' : 'col6' }}">
+                                    <div class="box rounded border bg-dark col6">
                                         <h4>{{ $title }}</h4>
                                         <div class="grid-row-gap">
                                             @if ($character->items->where('type', $type)->count() > 0)
                                                 @foreach($character->items->where('type', $type) as $item)
-                                                    <div class="box rounded-small border bg-01dp flex-center">
-                                                        <span class="flex-grow">
-                                                            {{ $item->name }}
-                                                        </span>
-                                                        <div class="grid-gap-small flex-center">
-                                                            @if(!$item->pivot->is_equipped && in_array($type, ['weapon', 'helm', 'armor', 'shoes', 'shield']))
-                                                                <form action="{{ route('items.equip', [$character->id, $item->pivot->id]) }}" method="POST">
-                                                                    @csrf <button class="btn-blue rounded small btn-add"></button>
-                                                                </form>
-                                                            @endif
-                                                            @if($item->pivot->is_equipped && in_array($type, ['weapon', 'helm', 'armor', 'shoes', 'shield']))
-                                                                <span class="tag">Equipped</span>
-                                                            @endif
-                                                            <form action="{{ route('items.remove', [$character->id, $item->pivot->id]) }}" method="POST">
-                                                                @csrf <button class="btn-red small btn-delete rounded"></button>
-                                                            </form>
+                                                    <div class="flex no-wrap rounded-small border bg-01dp flex-stretch {{ $item->pivot->is_equipped ? 'bg-blue-transparent border-blue' : '' }}">
+                                                        <div class="item-image">
+                                                            <figure class="square">
+                                                                <img src="/resources/images/barbarin.png">
+                                                            </figure>
+                                                        </div>
+
+                                                        <div class="box grid flex-center flex-grow">
+                                                            <span class="flex-grow flex-center">
+                                                                {{ $item->name }}
+                                                                @if($item->type === 'weapon')
+                                                                    <span class="item-stat space-left space-half-right">
+                                                                        <svg fill="#000000" height="800px" width="800px" version="1.1" id="sword" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 510.393 510.393" xml:space="preserve"><g><g><path d="M473.929,443.781l-61.006-61.006c20.193-23.994,34.821-50.539,36.986-72.686c1.146-11.726-7.431-22.161-19.157-23.308 s-22.161,7.431-23.308,19.157c-0.274,2.806-0.97,5.822-2.02,8.99l-59.715-59.711l128.212-128.231 c2.34-2.341,4.104-5.194,5.151-8.333l30.187-90.496c5.563-16.678-10.303-32.548-26.982-26.99L391.76,31.333 c-3.142,1.047-5.998,2.812-8.34,5.154L255.197,164.711L126.972,36.495c-2.341-2.341-5.195-4.105-8.335-5.152L28.119,1.156 C11.44-4.406-4.43,11.464,1.133,28.143l30.187,90.517c1.047,3.141,2.811,5.994,5.152,8.335L164.687,255.22l-59.981,59.981 c-0.947-3.009-1.532-5.854-1.692-8.477c-0.713-11.76-10.826-20.716-22.586-20.002c-11.76,0.714-20.716,10.826-20.002,22.586 c0.968,15.948,8.92,34.408,21.056,52.607c0.126,0.2,0.237,0.407,0.371,0.604c0.458,0.677,0.942,1.352,1.411,2.027 c0.003,0.004,0.006,0.008,0.008,0.012c0.812,1.17,1.633,2.338,2.478,3.504c0.74,1.026,1.492,2.05,2.256,3.072 c0.21,0.281,0.42,0.561,0.633,0.841c2.77,3.67,5.691,7.306,8.741,10.888L36.465,443.78c-8.331-8.33-21.838-8.33-30.169,0.001 c-8.331,8.331-8.331,21.839,0,30.17l14.936,14.936c0.049,0.05,0.091,0.106,0.141,0.156s0.105,0.091,0.156,0.141l14.934,14.934 c8.331,8.331,21.839,8.331,30.17,0c8.33-8.33,8.331-21.835,0.003-30.166l61.006-61.006c23.995,20.193,50.54,34.822,72.687,36.987 c11.726,1.146,22.161-7.431,23.308-19.157c1.146-11.726-7.431-22.161-19.157-23.308c-2.808-0.274-5.826-0.971-8.997-2.022 l59.705-59.719l59.984,59.988c-3.005,0.945-5.847,1.529-8.467,1.688c-11.76,0.713-20.716,10.826-20.002,22.586 c0.714,11.76,10.826,20.716,22.586,20.002c15.989-0.97,34.502-8.962,52.746-21.15c0.143-0.092,0.292-0.17,0.434-0.266 c0.53-0.358,1.058-0.738,1.587-1.103c0.534-0.366,1.068-0.739,1.601-1.113c0.565-0.397,1.13-0.785,1.694-1.19 c1.3-0.929,2.595-1.884,3.889-2.852c0.209-0.157,0.417-0.313,0.626-0.471c3.701-2.79,7.369-5.735,10.981-8.811l60.916,60.916 c-8.331,8.331-8.331,21.839,0,30.17c8.331,8.331,21.839,8.331,30.17,0l14.958-14.958c0.043-0.042,0.09-0.077,0.133-0.12 s0.078-0.09,0.12-0.133l14.954-14.954c8.331-8.331,8.331-21.839,0-30.17C495.765,435.456,482.261,435.454,473.929,443.781z M410.029,70.219l45.253-15.081l-15.091,45.24L315.539,225.049l-30.171-30.169L410.029,70.219z M55.111,55.135l45.252,15.091 l139.565,139.555c0.062,0.064,0.114,0.133,0.177,0.196l60.352,60.331c0.006,0.006,0.012,0.011,0.018,0.016l82.127,82.121 c-4.599,5.682-9.599,11.241-14.867,16.509c-4.933,4.933-10.019,9.548-15.186,13.8l-82.221-82.227 c-0.02-0.02-0.036-0.042-0.056-0.062l-60.331-60.331c-0.006-0.006-0.012-0.01-0.017-0.016L70.202,100.387L55.111,55.135z M157.964,382.623c-4.219-3.415-8.383-7.063-12.42-10.884c-0.021-0.02-0.042-0.04-0.063-0.061 c-1.138-1.078-2.261-2.176-3.377-3.281c-0.34-0.336-0.678-0.673-1.015-1.011c-4.825-4.872-9.294-9.801-13.419-14.809 l67.186-67.186l30.161,30.164L157.964,382.623z"/></g></g></svg>
+                                                                    </span>
+                                                                    + {{ $item->attack_bonus }}
+                                                                @endif
+                                                                @if($item->type === 'armor')
+                                                                    <span class="item-stat space-left space-half-right">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.644c2.965 2.238 6.458 3.004 8.912 3.25-.658 7.052-4.891 12.593-8.912 15.655-4.021-3.062-8.254-8.603-8.912-15.656 2.454-.245 5.947-1.011 8.912-3.249zm0-2.644c-2.995 2.995-7.486 4-11 4 0 8.583 5.068 16.097 11 20 5.932-3.903 11-11.417 11-20-3.514 0-8.005-1.005-11-4z"/></svg>
+                                                                    </span>
+                                                                    + {{ $item->defence_bonus }}
+                                                                @endif
+                                                            </span>
+                                                            <div class="grid-gap-small flex-center">
+                                                                @if(!$item->pivot->is_equipped && in_array($type, ['weapon', 'helm', 'armor', 'shoes', 'shield']))
+                                                                    <form action="{{ route('items.equip', [$character->id, $item->pivot->id]) }}" method="POST">
+                                                                        @csrf <button class="btn-blue rounded small icon-right icon-add">Equip</button>
+                                                                    </form>
+                                                                    <form action="{{ route('items.remove', [$character->id, $item->pivot->id]) }}" method="POST">
+                                                                        @csrf <button class="btn-red small btn-delete rounded"></button>
+                                                                    </form>
+                                                                @endif
+                                                                @if($item->pivot->is_equipped && in_array($type, ['weapon', 'helm', 'armor', 'shoes', 'shield']))
+                                                                    <form action="{{ route('items.unequip', [$character->id, $item->pivot->id]) }}" method="POST">
+                                                                        @csrf <button class="btn-red rounded small">Ablegen</button>
+                                                                    </form>
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 @endforeach
@@ -215,49 +265,6 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ausgerüstet -->
-                    <div class="col12">
-                        <div class="grid">
-                            <div class="col12 box rounded border bg-01dp" x-data="{ openEquipped: true }">
-                                <h3 class="show-medium">Ausgerüstet</h3>    
-                                <h3 class="hide-medium" :class="openEquipped ? '' : 'marg-bottom-no'"><a href="#" @click.prevent.stop="openEquipped = ! openEquipped" class="icon-right icon-add">Ausgerüstet</a></h3>
-                                <div class="grid" x-show="openEquipped">
-                                    <div class="box border rounded bg-dark col12">
-                                        <h4>Weapon</h4>
-                                        @php $equipped = $character->equipped('weapon'); @endphp
-                                        @if($equipped)
-                                            <div class="grid flex-center">
-                                                <span class="flex-grow">{{ $equipped->name }}</span>
-                                                <form action="{{ route('items.unequip', [$character->id, $equipped->pivot->id]) }}" method="POST">
-                                                    @csrf <button class="btn-red rounded small">Ablegen</button>
-                                                </form>
-                                            </div>
-                                        @else
-                                            <span class="text-xs italic text-gray-800">Leer</span>
-                                        @endif
-                                    </div>
-                                    
-                                    @foreach(['helmet' => 'Helm', 'armor' => 'Rüstung', 'boots' => 'Schuhe', 'shield' => 'Schild'] as $sub_type => $label)
-                                        <div class="box border rounded bg-dark col6">
-                                            <h4>{{ $label }}</h4>
-                                            @php $equipped = $character->equipped($sub_type); @endphp
-                                            @if($equipped)
-                                                <div class="grid flex-center">
-                                                    <span class="flex-grow">{{ $equipped->name }}</span>
-                                                    <form action="{{ route('items.unequip', [$character->id, $equipped->pivot->id]) }}" method="POST">
-                                                        @csrf <button class="btn-red rounded small">Ablegen</button>
-                                                    </form>
-                                                </div>
-                                            @else
-                                                <span class="text-xs italic text-gray-800">Leer</span>
-                                            @endif
-                                        </div>
-                                    @endforeach
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -286,6 +293,24 @@
                     if (heightElement) {
                         heightElement.style.height = percentage + '%';
                     }
+                } else if(data.message) {
+                    alert(data.message);
+                }
+            });
+        }
+
+        function changeGold(statName, changeValue) {
+            fetch(`/character/{{ $character->id }}/update-gold`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                body: JSON.stringify({ stat: statName, change: changeValue })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.success) {
+                    document.getElementById('adjust-gold').value = '';
+                    document.getElementById('current-gold-btn').innerHTML = data.value;
+                    document.getElementById('current-gold-main').innerHTML = data.value;
                 } else if(data.message) {
                     alert(data.message);
                 }
@@ -327,13 +352,15 @@
                     items.forEach(i => {
                         // Werte vorbereiten
                         let stats = '';
-                        if(i.attack_bonus > 0) stats += `<span class="text-red-500 font-bold text-xs">⚔️${i.attack_bonus}</span> `;
-                        if(i.defence_bonus > 0) stats += `<span class="text-blue-500 font-bold text-xs">🛡️${i.defence_bonus}</span>`;
+                        if(i.attack_bonus > 0) stats += `<span class="item-stat space-left space-half-right"><svg fill="#000000" height="800px" width="800px" version="1.1" id="sword" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 510.393 510.393" xml:space="preserve"><g><g><path d="M473.929,443.781l-61.006-61.006c20.193-23.994,34.821-50.539,36.986-72.686c1.146-11.726-7.431-22.161-19.157-23.308 s-22.161,7.431-23.308,19.157c-0.274,2.806-0.97,5.822-2.02,8.99l-59.715-59.711l128.212-128.231 c2.34-2.341,4.104-5.194,5.151-8.333l30.187-90.496c5.563-16.678-10.303-32.548-26.982-26.99L391.76,31.333 c-3.142,1.047-5.998,2.812-8.34,5.154L255.197,164.711L126.972,36.495c-2.341-2.341-5.195-4.105-8.335-5.152L28.119,1.156 C11.44-4.406-4.43,11.464,1.133,28.143l30.187,90.517c1.047,3.141,2.811,5.994,5.152,8.335L164.687,255.22l-59.981,59.981 c-0.947-3.009-1.532-5.854-1.692-8.477c-0.713-11.76-10.826-20.716-22.586-20.002c-11.76,0.714-20.716,10.826-20.002,22.586 c0.968,15.948,8.92,34.408,21.056,52.607c0.126,0.2,0.237,0.407,0.371,0.604c0.458,0.677,0.942,1.352,1.411,2.027 c0.003,0.004,0.006,0.008,0.008,0.012c0.812,1.17,1.633,2.338,2.478,3.504c0.74,1.026,1.492,2.05,2.256,3.072 c0.21,0.281,0.42,0.561,0.633,0.841c2.77,3.67,5.691,7.306,8.741,10.888L36.465,443.78c-8.331-8.33-21.838-8.33-30.169,0.001 c-8.331,8.331-8.331,21.839,0,30.17l14.936,14.936c0.049,0.05,0.091,0.106,0.141,0.156s0.105,0.091,0.156,0.141l14.934,14.934 c8.331,8.331,21.839,8.331,30.17,0c8.33-8.33,8.331-21.835,0.003-30.166l61.006-61.006c23.995,20.193,50.54,34.822,72.687,36.987 c11.726,1.146,22.161-7.431,23.308-19.157c1.146-11.726-7.431-22.161-19.157-23.308c-2.808-0.274-5.826-0.971-8.997-2.022 l59.705-59.719l59.984,59.988c-3.005,0.945-5.847,1.529-8.467,1.688c-11.76,0.713-20.716,10.826-20.002,22.586 c0.714,11.76,10.826,20.716,22.586,20.002c15.989-0.97,34.502-8.962,52.746-21.15c0.143-0.092,0.292-0.17,0.434-0.266 c0.53-0.358,1.058-0.738,1.587-1.103c0.534-0.366,1.068-0.739,1.601-1.113c0.565-0.397,1.13-0.785,1.694-1.19 c1.3-0.929,2.595-1.884,3.889-2.852c0.209-0.157,0.417-0.313,0.626-0.471c3.701-2.79,7.369-5.735,10.981-8.811l60.916,60.916 c-8.331,8.331-8.331,21.839,0,30.17c8.331,8.331,21.839,8.331,30.17,0l14.958-14.958c0.043-0.042,0.09-0.077,0.133-0.12 s0.078-0.09,0.12-0.133l14.954-14.954c8.331-8.331,8.331-21.839,0-30.17C495.765,435.456,482.261,435.454,473.929,443.781z M410.029,70.219l45.253-15.081l-15.091,45.24L315.539,225.049l-30.171-30.169L410.029,70.219z M55.111,55.135l45.252,15.091 l139.565,139.555c0.062,0.064,0.114,0.133,0.177,0.196l60.352,60.331c0.006,0.006,0.012,0.011,0.018,0.016l82.127,82.121 c-4.599,5.682-9.599,11.241-14.867,16.509c-4.933,4.933-10.019,9.548-15.186,13.8l-82.221-82.227 c-0.02-0.02-0.036-0.042-0.056-0.062l-60.331-60.331c-0.006-0.006-0.012-0.01-0.017-0.016L70.202,100.387L55.111,55.135z M157.964,382.623c-4.219-3.415-8.383-7.063-12.42-10.884c-0.021-0.02-0.042-0.04-0.063-0.061 c-1.138-1.078-2.261-2.176-3.377-3.281c-0.34-0.336-0.678-0.673-1.015-1.011c-4.825-4.872-9.294-9.801-13.419-14.809 l67.186-67.186l30.161,30.164L157.964,382.623z"/></g></g></svg></span>
+                                                        + ${i.attack_bonus}`;
+                        if(i.defence_bonus > 0) stats += `<span class="item-stat space-left space-half-right"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.644c2.965 2.238 6.458 3.004 8.912 3.25-.658 7.052-4.891 12.593-8.912 15.655-4.021-3.062-8.254-8.603-8.912-15.656 2.454-.245 5.947-1.011 8.912-3.249zm0-2.644c-2.995 2.995-7.486 4-11 4 0 8.583 5.068 16.097 11 20 5.932-3.903 11-11.417 11-20-3.514 0-8.005-1.005-11-4z"/></svg></span>
+                                                        - ${i.defence_bonus}`;
                         
                         html += `
                         <div onclick="addItem(${i.id})" class="item">
                             <div class="item-info">
-                                <span>${i.name} - ${i.type} ${stats}</span>
+                                <span class="flex-center">${i.name} - ${i.type} ${stats}</span>
                             </div>
                             <div class="item-extra">
                                 <span class="btn-gold rounded">${i.gold_value ?? 0} G</span>

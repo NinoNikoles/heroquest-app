@@ -114,6 +114,7 @@ a.icon-right:hover {
     &-fullscreen { &::before { content: $icon-fullscreen; } }
     &-fullscreen-exit { &::before { content: $icon-fullscreen-exit; } }
     &-globe { &::before { content: $icon-globe; } }
+    &-gold{ &::before { content: $icon-gold; } }
     &-heart { &::before { content: $icon-heart; } }
     &-heart-empty { &::before { content: $icon-heart-empty; } }
     &-heart-minus { &::before { content: $icon-heart-minus; } }
@@ -164,6 +165,7 @@ a.icon-right:hover {
     &-volume-up { &::before { content: $icon-volume-up; } }
     &-zoom-in { &::before { content: $icon-zoom-in; } }
     &-zoom-out { &::before { content: $icon-zoom-out; } }
+    &-tab { &::before { content: "|"; } }
 }
 
 a {

@@ -65,6 +65,80 @@
     .col-#{$i} {
         @include column($i);
     }
+
+    .marg-left-col#{$i} { @include MQ(medium) { margin-left: horizontalSpace($i,$grid-columns); } }
+    .marg-right-col#{$i} { @include MQ(medium) { margin-right: horizontalSpace($i,$grid-columns); } }
+    .marg-horizontal-col#{$i} { @include MQ(medium) { margin-right: horizontalSpace($i,$grid-columns); margin-left: horizontalSpace($i,$grid-columns); } }
+
+    .pad-left-col#{$i} { @include MQ(medium) { padding-left: horizontalSpace($i,$grid-columns); } }
+    .pad-right-col#{$i} { @include MQ(medium) { padding-right: horizontalSpace($i,$grid-columns); } }
+    .pad-horizontal-col#{$i} { @include MQ(medium) { padding-left: horizontalSpace($i,$grid-columns); padding-right: horizontalSpace($i,$grid-columns); } }
+
+    .left-col#{$i} { @include MQ(medium) { left: horizontalSpace($i,$grid-columns); } }
+    .right-col#{$i} { @include MQ(medium) { right: horizontalSpace($i,$grid-columns); } }
+}
+
+@each $name, $val in $breakpoints {
+    @include MQ($name) {
+        @for $i from 1 through $grid-columns {
+            .col-#{$i}-#{$name} { @include column($i); }
+        }
+    }
+}
+
+@each $step, $val in $gaps {
+    // padding
+    .pad-#{$step} { padding: $val/2; @include MQ(medium) { padding: $val; } }
+    .pad-top-#{$step} { padding-top: $val/2; @include MQ(medium) { padding-top: $val; } }
+    .pad-right-#{$step} { padding-right: $val/2; @include MQ(medium) { padding-right: $val; } }
+    .pad-bottom-#{$step} { padding-bottom: $val/2; @include MQ(medium) { padding-bottom: $val; } }
+    .pad-left-#{$step} { padding-left: $val/2; @include MQ(medium) { padding-left: $val; } }
+    .pad-horizontal-#{$step} { padding: { right: $val/2; left: $val/2; } @include MQ(medium) { padding: { right: $val; left: $val; } } }
+    .pad-vertical-#{$step} { padding: { top: $val/2; bottom: $val/2; } @include MQ(medium) { padding: { top: $val; bottom: $val; } } }
+    //margin
+    .marg-#{$step} { margin: $val/2 !important; @include MQ(medium) { margin: $val !important; } }
+    .marg-top-#{$step} { margin-top: $val/2; @include MQ(medium) { margin-top: $val; } }
+    .marg-right-#{$step} { margin-right: $val/2; @include MQ(medium) { margin-right: $val; } }
+    .marg-bottom-#{$step} { margin-bottom: $val/2 !important; @include MQ(medium) { margin-bottom: $val !important; } }
+    .marg-left-#{$step} { margin-left: $val/2; @include MQ(medium) { margin-left: $val; } }
+    .marg-horizontal-#{$step} { margin: { right: $val/2; left: $val/2; } @include MQ(medium) { margin: { right: $val; left: $val; } } }
+    .marg-vertical-#{$step} { margin: { top: $val/2; bottom: $val/2; } @include MQ(medium) { margin: { top: $val; bottom: $val; } } }
+    // pull-margin
+    .pull-#{$step} { margin: 0; @include MQ(medium) { margin: -#{$val}; } }
+    .pull-top-#{$step} { margin-top: 0; @include MQ(medium) { margin-top: -#{$val}; } }
+    .pull-right-#{$step} { margin-right: 0; @include MQ(medium) { margin-right: -#{$val}; } }
+    .pull-bottom-#{$step} {margin-bottom: 0; @include MQ(medium) { margin-bottom: -#{$val}; } }
+    .pull-left-#{$step} { margin-left: 0; @include MQ(medium) { margin-left: -#{$val}; } }
+}
+
+.space {
+    &-top { margin-top: $space !important; }
+    &-right { margin-right: $space !important; }
+    &-bottom { margin-bottom: $space !important; }
+    &-left { margin-left: $space !important; }
+}
+
+.space-half {
+    &-top { margin-top: $space*.5 !important; }
+    &-right { margin-right: $space*.5 !important; }
+    &-bottom { margin-bottom: $space*.5 !important; }
+    &-left { margin-left: $space*.5 !important; }
+}
+
+.pad {
+    &-no { padding: 0 !important; }
+    &-top-no { padding-top: 0 !important; }
+    &-right-no { padding-right: 0 !important; }
+    &-bottom-no { padding-bottom: 0 !important; }
+    &-left-no { padding-left: 0 !important; }
+}
+
+.marg {
+    &-no { margin: 0 !important; }
+    &-top-no { margin-top: 0 !important; }
+    &-right-no { margin-right: 0 !important; }
+    &-bottom-no { margin-bottom: 0 !important; }
+    &-left-no { margin-left: 0 !important; }
 }
 
 .show-medium {
