@@ -145,6 +145,9 @@ hr { border-color: $color-bg-02dp; border-style: solid; margin: $space 0; }
 .translate-x-10 { transform: translateX(+10%); }
 
 .breadcrumb {
+    margin-bottom: 0;
+    * { margin-bottom: 0; }
+    
     a:hover { color: $font-color-disabled; }
 }
 
