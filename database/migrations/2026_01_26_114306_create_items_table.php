@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('description')->nullable();
+           $table->id();
+            $table->json('name');
+            $table->json('description')->nullable();
             $table->string('type');
-            $table->string('sub_type');
-            $table->string('gold_value')->default(0);
+            $table->string('sub_type')->nullable();
+            $table->integer('gold_value')->default(0);
             $table->integer('attack_bonus')->default(0);
             $table->integer('defence_bonus')->default(0);
             $table->integer('move_bonus')->default(0);
