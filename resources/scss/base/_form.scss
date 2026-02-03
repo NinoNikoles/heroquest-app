@@ -9,3 +9,8 @@ input {
         &.rounded { border-radius: $border-radius*0.5;}
     }
 }
+
+label {
+    display: block;
+    margin-bottom: $space*.5;
+}

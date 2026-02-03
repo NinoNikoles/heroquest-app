@@ -21,6 +21,10 @@ main {
 //     display: none;
 // }
 
+section {
+    width: 100%;
+}
+
 #toast-container { position: fixed; bottom: $space; right: $space; overflow: hidden; z-index: 9; transition: opacity 1s, transform 1s; }
 
 .bg-dark { background-color: $dark-grey; }
@@ -34,10 +38,10 @@ main {
 .bg-16dp { background-color: $color-bg-16dp; }
 .bg-24dp { background-color: $color-bg-24dp; }
 
-.bg-red-transparent { background-color: $color-hp-transparent;}
-.bg-blue-transparent { background-color: $color-int-transparent;}
-.bg-gold-transparent { background-color: $color-gold-transparent;}
-.bg-green-transparent { background-color: $color-success-transparent;}
+.bg-red-transparent { background-color: $color-hp-transparent !important;}
+.bg-blue-transparent { background-color: $color-int-transparent !important;}
+.bg-gold-transparent { background-color: $color-gold-transparent !important;}
+.bg-green-transparent { background-color: $color-success-transparent !important;}
 
 .border { border: $border-default; }
 .border-none { border: none; }
@@ -162,6 +166,7 @@ hr { border-color: $color-bg-02dp; border-style: solid; margin: $space 0; }
     opacity: 0;
     transition: display .25s, opacity .25s;
     transition-behavior: allow-discrete;
+    z-index: 9;
 
     // @include MQ(small) { width: 50%; }
 

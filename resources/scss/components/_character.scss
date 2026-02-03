@@ -252,10 +252,6 @@
         background-color: $dark-grey;
         border: $border-default;
         border-radius: $border-radius*.5;
-
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         overflow: hidden;
 
@@ -338,6 +334,10 @@
         max-width: 80%;
         opacity: .1;
     }
+}
+
+.item {
+    position: relative;
 }
 
 .item-image {
