@@ -128,12 +128,25 @@ class CharacterController extends Controller
     // Item suchen und dem Inventar hinzufügen
     public function searchItems(Request $request) {
         $query = $request->query('query');
-        
-        $items = \App\Models\Item::where('name', 'LIKE', "%{$query}%")
+        $lang = $request->query('lang');
+
+        $items = \App\Models\Item::whereRaw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(name, '$.\"{$lang}\"'))) LIKE ?", ["%{$query}%"])
+            ->orWhereRaw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(name, '$.en-US'))) LIKE ?", ["%{$query}%"])
             ->limit(8)
-            ->get(['id', 'name', 'type', 'attack_bonus', 'defence_bonus', 'gold_value']); // gold_value ist dein Spaltenname für Gold
-            
-        return response()->json($items);
+            ->get();
+
+        $formattedItems = $items->map(function($item) use ($lang) {
+            return [
+                'id' => $item->id,
+                'name' => $item->name[$lang] ?? $item->name['en-US'],
+                'description' => $item->description[$lang] ?? $item->description['en-US'] ?? '',
+                'type' => $item->type,
+                'attack_bonus' => $item->attack_bonus,
+                'defence_bonus' => $item->defence_bonus,
+                'gold_value' => $item->gold_value
+            ];
+        });
+        return response()->json($formattedItems);
     }
 
     public function addSpecificItem(HeroCharacter $character, \App\Models\Item $item)
@@ -157,7 +170,7 @@ class CharacterController extends Controller
         // ]);
         return response()->json([
             'success' => true,
-            'message' => "{$item->name} hinzugefügt!"
+            'message' => "{$item->name[$this->lang()]} hinzugefügt!"
         ]);
     }
 

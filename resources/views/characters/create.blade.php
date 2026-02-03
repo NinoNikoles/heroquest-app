@@ -1,12 +1,9 @@
 <x-app-layout>
     <div class="innerWrap">
-        <form action="{{ route('characters.store', $lobby->code) }}" method="POST">
+        <form action="{{ route('characters.store', $lobby->code) }}" method="POST" class="grid">
             <section>
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <h1 class="t-center">Wähle deinen Helden für die Lobby<br> "{{ $lobby->name }}"</h1>
-
-                        
-                    
                 </div>
             </section>
 
@@ -21,7 +18,7 @@
             <section>
                 <div class="grid">
                     @foreach($classes as $className => $stats)
-                        <div class="box border rounded bg-01dp col-3 cursor-pointer character-select" id="{{ $className }}">
+                        <div class="box border rounded bg-01dp col-12 col-6-xxsmall col-4-xsmall col-3-small cursor-pointer character-select" id="{{ $className }}">
                             <label class="cursor-pointer">
                                 <input type="radio" name="class" value="{{ $className }}" class="hidden" required 
                                     onclick="
@@ -30,9 +27,9 @@
                                         document.getElementById('ad').value='{{ $stats['ad'] }}';
                                         document.getElementById('dd').value='{{ $stats['dd'] }}';
                                         document.getElementById('md').value='{{ $stats['md'] }}';
-                                        console.log(document.getElementById('{{ $className }}'));
-                                        document.querySelectorAll('.character-select').forEach(e => { e.classList.remove('border-success'); });
+                                        document.querySelectorAll('.character-select').forEach(e => { e.classList.remove('border-success'); e.classList.remove('bg-green-transparent'); });
                                         document.getElementById('{{ $className }}').classList.add('border-success');
+                                        document.getElementById('{{ $className }}').classList.add('bg-green-transparent');
                                         "
                                     >
                                 <div class="bg-gray-800 p-6 rounded-lg border-2 border-transparent  hover:bg-gray-700 transition">
@@ -54,7 +51,7 @@
                 <input type="hidden" name="movement_dice" id="md" value="0">
             </section>
 
-            <div class="t-right">
+            <div class="w-full t-right">
                 <button type="submit" class="btn-blue rounded">
                     Abenteuer beginnen
                 </button>
