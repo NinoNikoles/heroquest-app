@@ -160,3 +160,8 @@ dist
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+/public/css/*.css
+/public/css/font.min.css.map
+/public/css/main.min.css
+/public/css/main.min.css.map
