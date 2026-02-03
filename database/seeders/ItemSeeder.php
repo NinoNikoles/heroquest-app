@@ -16,12 +16,12 @@ class ItemSeeder extends Seeder
             // Weapons
             [
                 'name' => [
-                    'en' => 'Dagger',
-                    'de' => 'Dolch',
+                    'en-US' => 'Dagger',
+                    'de-DE' => 'Dolch',
                 ], 
                 'description' => [
-                    'en' => 'A sharp knife. Can be thrown at any monster you can see but is lost once thrown.',
-                    'de' => 'Ein scharfes Messer. Kann nach jedem Monster geworfen werden, das man sieht, geht aber nach dem Wurf verloren.',
+                    'en-US' => 'A sharp knife. Can be thrown at any monster you can see but is lost once thrown.',
+                    'de-DE' => 'Ein scharfes Messer. Kann nach jedem Monster geworfen werden, das man sieht, geht aber nach dem Wurf verloren.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 25,
@@ -29,12 +29,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Shortsword',
-                    'de' => 'Kurzschwert',
+                    'en-US' => 'Shortsword',
+                    'de-DE' => 'Kurzschwert',
                 ],
                 'description' => [
-                    'en' => 'Gives you the attack strength of 2 combat dice.',
-                    'de' => 'Verleiht dir die Angriffsstärke von 2 Kampfwürfeln.',
+                    'en-US' => 'Gives you the attack strength of 2 combat dice.',
+                    'de-DE' => 'Verleiht dir die Angriffsstärke von 2 Kampfwürfeln.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 150,
@@ -42,12 +42,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Hand Axe',
-                    'de' => 'Handbeil',
+                    'en-US' => 'Hand Axe',
+                    'de-DE' => 'Handbeil',
                 ],
                 'description' => [
-                    'en' => 'Can be thrown at any monster in your line of sight but is lost once thrown.',
-                    'de' => 'Kann auf jedes Monster in Sichtweite geworfen werden, geht aber nach dem Wurf verloren.',
+                    'en-US' => 'Can be thrown at any monster in your line of sight but is lost once thrown.',
+                    'de-DE' => 'Kann auf jedes Monster in Sichtweite geworfen werden, geht aber nach dem Wurf verloren.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 200,
@@ -55,12 +55,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Rapier',
-                    'de' => 'Rapier',
+                    'en-US' => 'Rapier',
+                    'de-DE' => 'Rapier',
                 ],
                 'description' => [
-                    'en' => 'A light and fast sword that rewards precision.',
-                    'de' => 'Ein leichtes und schnelles Schwert, das Präzision belohnt.',
+                    'en-US' => 'A light and fast sword that rewards precision.',
+                    'de-DE' => 'Ein leichtes und schnelles Schwert, das Präzision belohnt.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 250,
@@ -68,12 +68,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Broadsword',
-                    'de' => 'Breitschwert',
+                    'en-US' => 'Broadsword',
+                    'de-DE' => 'Breitschwert',
                 ],
                 'description' => [
-                    'en' => 'This wide blade gives you the attack strength of 3 combat dice.',
-                    'de' => 'Diese breite Klinge verleiht dir die Angriffsstärke von 3 Kampfwürfeln.',
+                    'en-US' => 'This wide blade gives you the attack strength of 3 combat dice.',
+                    'de-DE' => 'Diese breite Klinge verleiht dir die Angriffsstärke von 3 Kampfwürfeln.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 250,
@@ -81,12 +81,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Longsword',
-                    'de' => 'Langschwert',
+                    'en-US' => 'Longsword',
+                    'de-DE' => 'Langschwert',
                 ],
                 'description' => [
-                    'en' => 'Because of its length, this blade enables you to attack diagonally.',
-                    'de' => 'Aufgrund ihrer Länge ermöglicht diese Klinge diagonale Angriffe.',
+                    'en-US' => 'Because of its length, this blade enables you to attack diagonally.',
+                    'de-DE' => 'Aufgrund ihrer Länge ermöglicht diese Klinge diagonale Angriffe.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 350,
@@ -94,12 +94,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Battle Axe',
-                    'de' => 'Streitaxt',
+                    'en-US' => 'Battle Axe',
+                    'de-DE' => 'Streitaxt',
                 ],
                 'description' => [
-                    'en' => 'A heavy, double-edged axe. You may not use a shield when using this weapon.',
-                    'de' => 'Eine schwere, zweischneidige Axt. Beim Einsatz dieser Waffe darf kein Schild verwendet werden.',
+                    'en-US' => 'A heavy, double-edged axe. You may not use a shield when using this weapon.',
+                    'de-DE' => 'Eine schwere, zweischneidige Axt. Beim Einsatz dieser Waffe darf kein Schild verwendet werden.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 450,
@@ -107,12 +107,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Staff',
-                    'de' => 'Stab',
+                    'en-US' => 'Staff',
+                    'de-DE' => 'Stab',
                 ],
                 'description' => [
-                    'en' => 'Enables you to attack diagonally. You may not use a shield when using this weapon.',
-                    'de' => 'Ermöglicht diagonale Angriffe. Die Verwendung eines Schildes ist bei dieser Waffe nicht erlaubt.',
+                    'en-US' => 'Enables you to attack diagonally. You may not use a shield when using this weapon.',
+                    'de-DE' => 'Ermöglicht diagonale Angriffe. Die Verwendung eines Schildes ist bei dieser Waffe nicht erlaubt.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 100,
@@ -120,12 +120,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Crossbow',
-                    'de' => 'Armbrust',
+                    'en-US' => 'Crossbow',
+                    'de-DE' => 'Armbrust',
                 ],
                 'description' => [
-                    'en' => 'Unlimited arrows. You cannot fire at a monster that is adjacent to you.',
-                    'de' => 'Unbegrenzte Pfeile. Du kannst nicht auf ein Monster schießen, das sich neben dir befindet.',
+                    'en-US' => 'Unlimited arrows. You cannot fire at a monster that is adjacent to you.',
+                    'de-DE' => 'Unbegrenzte Pfeile. Du kannst nicht auf ein Monster schießen, das sich neben dir befindet.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 350,
@@ -133,12 +133,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Wand',
-                    'de' => 'Zauberstab',
+                    'en-US' => 'Wand',
+                    'de-DE' => 'Zauberstab',
                 ],
                 'description' => [
-                    'en' => 'A magical wand that can attack diagonally and at range.',
-                    'de' => 'Ein magischer Zauberstab, der diagonal und aus der Ferne angreifen kann.',
+                    'en-US' => 'A magical wand that can attack diagonally and at range.',
+                    'de-DE' => 'Ein magischer Zauberstab, der diagonal und aus der Ferne angreifen kann.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 125,
@@ -146,12 +146,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Spear',
-                    'de' => 'Speer',
+                    'en-US' => 'Spear',
+                    'de-DE' => 'Speer',
                 ],
                 'description' => [
-                    'en' => 'A long weapon that allows you to attack diagonally. You may not use a shield when using this weapon.',
-                    'de' => 'Eine lange Waffe, mit der man diagonal angreifen kann. Beim Einsatz dieser Waffe darf kein Schild verwendet werden.',
+                    'en-US' => 'A long weapon that allows you to attack diagonally. You may not use a shield when using this weapon.',
+                    'de-DE' => 'Eine lange Waffe, mit der man diagonal angreifen kann. Beim Einsatz dieser Waffe darf kein Schild verwendet werden.',
                 ],
                 'type' => 'weapon',
                 'gold_value' => 150,
@@ -162,12 +162,12 @@ class ItemSeeder extends Seeder
             // Armor
             [
                 'name' => [
-                    'en' => 'Helmet',
-                    'de' => 'Helm',
+                    'en-US' => 'Helmet',
+                    'de-DE' => 'Helm',
                 ],
                 'description' => [
-                    'en' => 'This protective metal headpiece gives you 1 extra Defend die.',
-                    'de' => 'Dieser schützende Metallkopfschutz gibt dir 1 zusätzlichen Verteidigungswürfel.',
+                    'en-US' => 'This protective metal headpiece gives you 1 extra Defend die.',
+                    'de-DE' => 'Dieser schützende Metallkopfschutz gibt dir 1 zusätzlichen Verteidigungswürfel.',
                 ],
                 'type' => 'armor',
                 'sub_type' => 'helmet',
@@ -176,12 +176,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Shield',
-                    'de' => 'Schild',
+                    'en-US' => 'Shield',
+                    'de-DE' => 'Schild',
                 ],
                 'description' => [
-                    'en' => 'Gives you 1 extra Defend die. May not be used with the battle axe or the staff.',
-                    'de' => 'Gewährt dir 1 zusätzlichen Verteidigungswürfel. Kann nicht mit der Streitaxt oder dem Stab verwendet werden.',
+                    'en-US' => 'Gives you 1 extra Defend die. May not be used with the battle axe or the staff.',
+                    'de-DE' => 'Gewährt dir 1 zusätzlichen Verteidigungswürfel. Kann nicht mit der Streitaxt oder dem Stab verwendet werden.',
                 ],
                 'type' => 'armor',
                 'sub_type' => 'shield',
@@ -190,12 +190,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Chain Mail',
-                    'de' => 'Kettenhemd',
+                    'en-US' => 'Chain Mail',
+                    'de-DE' => 'Kettenhemd',
                 ],
                 'description' => [
-                    'en' => 'Light metal armor that gives you 1 extra Defend die. May be combined with helmet/shield.',
-                    'de' => 'Leichte Metallrüstung, die dir einen zusätzlichen Verteidigungswürfel gewährt. Kann mit Helm/Schild kombiniert werden.',
+                    'en-US' => 'Light metal armor that gives you 1 extra Defend die. May be combined with helmet/shield.',
+                    'de-DE' => 'Leichte Metallrüstung, die dir einen zusätzlichen Verteidigungswürfel gewährt. Kann mit Helm/Schild kombiniert werden.',
                 ],
                 'type' => 'armor',
                 'sub_type' => 'armor',
@@ -204,12 +204,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Plate Mail',
-                    'de' => 'Plattenpanzer',
+                    'en-US' => 'Plate Mail',
+                    'de-DE' => 'Plattenpanzer',
                 ],
                 'description' => [
-                    'en' => 'Heavy armor. You may only roll 1 red die for movement while wearing it.',
-                    'de' => 'Schwere Rüstung. Du darfst beim Tragen dieser Rüstung nur 1 roten Würfel für die Bewegung werfen.',
+                    'en-US' => 'Heavy armor. You may only roll 1 red die for movement while wearing it.',
+                    'de-DE' => 'Schwere Rüstung. Du darfst beim Tragen dieser Rüstung nur 1 roten Würfel für die Bewegung werfen.',
                 ],
                 'type' => 'armor',
                 'sub_type' => 'armor',
@@ -218,12 +218,12 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => [
-                    'en' => 'Bracers',
-                    'de' => 'Armschienen',
+                    'en-US' => 'Bracers',
+                    'de-DE' => 'Armschienen',
                 ],
                 'description' => [
-                    'en' => 'Hardened leather bracers that give 1 extra Defend die. May be combined with helmet and/or shield.',
-                    'de' => 'Gehärtete Lederarmschienen, die einen zusätzlichen Verteidigungswürfel gewähren. Kann mit Helm und/oder Schild kombiniert werden.',
+                    'en-US' => 'Hardened leather bracers that give 1 extra Defend die. May be combined with helmet and/or shield.',
+                    'de-DE' => 'Gehärtete Lederarmschienen, die einen zusätzlichen Verteidigungswürfel gewähren. Kann mit Helm und/oder Schild kombiniert werden.',
                 ],
                 'type' => 'armor',
                 'sub_type' => 'armor',
@@ -234,24 +234,24 @@ class ItemSeeder extends Seeder
             // Items
             [
                 'name' => [
-                    'en' => 'Holy Water',
-                    'de' => 'Weihwasser',
+                    'en-US' => 'Holy Water',
+                    'de-DE' => 'Weihwasser',
                 ],
                 'description' => [
-                    'en' => 'Use instead of attacking to instantly kill any one undead creature. Discard after use.',
-                    'de' => 'Verwende diese Fähigkeit anstelle eines Angriffs, um eine beliebige untote Kreatur sofort zu töten. Nach Gebrauch ablegen.',
+                    'en-US' => 'Use instead of attacking to instantly kill any one undead creature. Discard after use.',
+                    'de-DE' => 'Verwende diese Fähigkeit anstelle eines Angriffs, um eine beliebige untote Kreatur sofort zu töten. Nach Gebrauch ablegen.',
                 ],
                 'type' => 'potion',
                 'gold_value' => 400
             ],
             [
                 'name' => [
-                    'en' => 'Potion of Healing',
-                    'de' => 'Heiltrank',
+                    'en-US' => 'Potion of Healing',
+                    'de-DE' => 'Heiltrank',
                 ],
                 'description' => [
-                    'en' => 'Restores up to 4 lost Body points.',
-                    'de' => 'Stellt bis zu 4 verlorene Körperpunkte wieder her.',
+                    'en-US' => 'Restores up to 4 lost Body points.',
+                    'de-DE' => 'Stellt bis zu 4 verlorene Körperpunkte wieder her.',
                 ],
                 'type' => 'potion',
                 'gold_value' => 500
@@ -260,7 +260,7 @@ class ItemSeeder extends Seeder
 
         foreach ($items as $item) {
             \App\Models\Item::updateOrCreate(
-                ['name->de' => $item['name']['de']],
+                ['name->de-DE' => $item['name']['de-DE']],
                 $item
             );
         }
