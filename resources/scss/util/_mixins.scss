@@ -69,7 +69,7 @@
 	line-height: 1.2;
 
 	@include MQ(small) {
-		font-size: $fontsize*1.2;
+		font-size: round($fontsize*1.2);
 	}
 }
 
