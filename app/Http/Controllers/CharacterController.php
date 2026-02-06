@@ -88,14 +88,17 @@ class CharacterController extends Controller
 
         if ($stat === 'add') {
             $character->gold = max(0, $character->gold + $change);
+            $message = $change . ' Gold hinzugefügt!';
         } else {
             $character->gold = max(0, $character->gold - $change);
+            $message = $change . ' Gold ausgegeben!';
         }
 
         $character->save();
         return response()->json([
             'success' => true,
-            'value' => $character->gold
+            'value' => $character->gold,
+            'message' => $message
         ]);
     }
 
