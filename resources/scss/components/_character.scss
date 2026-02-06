@@ -10,15 +10,18 @@
 }
 
 .character__header {
-    padding-top: 72px;
-    padding-right: $space;
-    padding-bottom: $space;
-    padding-left: $space;
-    position: relative;
-    margin-bottom: $space*.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
-    @include MQ(xxsmall) {
-        padding-top: 230px;
+    margin-bottom: -$space;
+    padding: $space;
+    padding-top: $space*4;
+    position: relative;
+
+    @include MQ(small) {
+        margin-bottom: 0;
+        padding-top: $space;
     }
 }
 
@@ -60,8 +63,8 @@
 
 .character__stat__box {
     box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 2px, rgba(0, 0, 0, 0.5) 0px 4px 15px 0px;
-    border-radius: 16px;
-    width: 100%;
+    border-radius: 10%;
+    width: 100px;
     height: 100px;
     margin: 0 auto;
     position: relative;
@@ -151,7 +154,7 @@
     background-color: $dark-grey;
     border: $border-default;
     border-radius: $border-radius;
-    margin: $space*.5 auto;
+    margin: $space*.5 auto 0 auto;
     z-index: 1;
     position: relative;
     padding: $space*.5;
