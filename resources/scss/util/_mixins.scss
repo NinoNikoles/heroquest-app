@@ -43,25 +43,34 @@
 }
 
 @mixin box-sizing($boxmodel) {
-  -webkit-box-sizing: $boxmodel;
-     -moz-box-sizing: $boxmodel;
-          box-sizing: $boxmodel;
+	-webkit-box-sizing: $boxmodel;
+	-moz-box-sizing: $boxmodel;
+	box-sizing: $boxmodel;
 }
 
 @function bp($bp) {
-  @return map-get($breakpoints, $bp);
+	@return map-get($breakpoints, $bp);
 }
 
 @mixin MQ($breakpoint) {
-  @media only screen and (min-width: bp($breakpoint)) { @content; }
+	@media only screen and (min-width: bp($breakpoint)) { @content; }
 }
 
 @mixin maxMQ($breakpoint) {
-  @media only screen and (max-width: bp($breakpoint)) { @content; }
+	@media only screen and (max-width: bp($breakpoint)) { @content; }
 }
 
 @mixin betweenMQ($breakpoint-1, $breakpoint-2) {
-  @media only screen and (min-width: bp($breakpoint-1)) and (max-width: bp($breakpoint-2)) { @content; }
+	@media only screen and (min-width: bp($breakpoint-1)) and (max-width: bp($breakpoint-2)) { @content; }
+}
+
+@mixin headlineFontSize($fontsize) {
+	font-size: $fontsize;
+	line-height: 1.2;
+
+	@include MQ(small) {
+		font-size: $fontsize*1.2;
+	}
 }
 
 @mixin btn($color: $dark-grey, $bg-color: $white) {

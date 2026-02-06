@@ -1,12 +1,12 @@
 * {
     color: $font-color;
     font-family: $font-family;
-    font-size: 16px;
+    font-size: $font-size;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: $font-family-special;
-    font-weight: bold;
+    font-weight: 500;
     margin-top: 0;
     margin-bottom: $space;
 
@@ -18,10 +18,10 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-h1 { font-size: 32px; text-transform: uppercase; @include MQ(small) { font-size: 48px; } }
-h2 { font-size: 24px; text-transform: uppercase; @include MQ(small) { font-size: 32px; } }
-h3 { font-size: 18px; text-transform: uppercase; @include MQ(small) { font-size: 24px; } }
-h4 { font-size: 16px; @include MQ(small) { font-size: 18px; } }
+h1 { @include headlineFontSize($headline-h1); text-transform: uppercase; }
+h2 { @include headlineFontSize($headline-h2); text-transform: uppercase; }
+h3 { @include headlineFontSize($headline-h3); text-transform: uppercase; }
+h4 { @include headlineFontSize($headline-h4); }
 
 p {
     margin-top: 0;
